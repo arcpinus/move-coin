@@ -1054,6 +1054,11 @@ type #0;
 function {:inline} $IsEqual'#0'(x1: #0, x2: #0): bool { x1 == x2 }
 function {:inline} $IsValid'#0'(x: #0): bool { true }
 
+// spec fun at /Users/admin/.move/https___github_com_move-language_move_git_main/language/move-stdlib/nursery/../sources/signer.move:12:5+77
+function {:inline} $1_signer_$address_of(s: $signer): int {
+    $1_signer_$borrow_address(s)
+}
+
 // fun signer::address_of [baseline] at /Users/admin/.move/https___github_com_move-language_move_git_main/language/move-stdlib/nursery/../sources/signer.move:12:5+77
 procedure {:inline 1} $1_signer_address_of(_$t0: $signer) returns ($ret0: int)
 {
@@ -1103,7 +1108,7 @@ L2:
 
 }
 
-// struct MoveCoin::Balance<OddCoin::OddCoin> at ./sources/MoveCoin.move:14:5+77
+// struct MoveCoin::Balance<OddCoin::OddCoin> at ./sources/MoveCoin.move:15:5+77
 type {:datatype} $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin';
 function {:constructor} $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($coin: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'): $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin';
 function {:inline} $Update'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''_coin(s: $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin', x: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'): $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin' {
@@ -1117,7 +1122,7 @@ function {:inline} $IsEqual'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''(s1: $
 }
 var $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory: $Memory $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin';
 
-// struct MoveCoin::Balance<#0> at ./sources/MoveCoin.move:14:5+77
+// struct MoveCoin::Balance<#0> at ./sources/MoveCoin.move:15:5+77
 type {:datatype} $eeee_MoveCoin_Balance'#0';
 function {:constructor} $eeee_MoveCoin_Balance'#0'($coin: $eeee_MoveCoin_Coin'#0'): $eeee_MoveCoin_Balance'#0';
 function {:inline} $Update'$eeee_MoveCoin_Balance'#0''_coin(s: $eeee_MoveCoin_Balance'#0', x: $eeee_MoveCoin_Coin'#0'): $eeee_MoveCoin_Balance'#0' {
@@ -1131,7 +1136,7 @@ function {:inline} $IsEqual'$eeee_MoveCoin_Balance'#0''(s1: $eeee_MoveCoin_Balan
 }
 var $eeee_MoveCoin_Balance'#0'_$memory: $Memory $eeee_MoveCoin_Balance'#0';
 
-// struct MoveCoin::Coin<OddCoin::OddCoin> at ./sources/MoveCoin.move:10:5+66
+// struct MoveCoin::Coin<OddCoin::OddCoin> at ./sources/MoveCoin.move:11:5+66
 type {:datatype} $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
 function {:constructor} $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($value: int): $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
 function {:inline} $Update'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''_value(s: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin', x: int): $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin' {
@@ -1144,7 +1149,7 @@ function {:inline} $IsEqual'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''(s1: $eee
     s1 == s2
 }
 
-// struct MoveCoin::Coin<#0> at ./sources/MoveCoin.move:10:5+66
+// struct MoveCoin::Coin<#0> at ./sources/MoveCoin.move:11:5+66
 type {:datatype} $eeee_MoveCoin_Coin'#0';
 function {:constructor} $eeee_MoveCoin_Coin'#0'($value: int): $eeee_MoveCoin_Coin'#0';
 function {:inline} $Update'$eeee_MoveCoin_Coin'#0''_value(s: $eeee_MoveCoin_Coin'#0', x: int): $eeee_MoveCoin_Coin'#0' {
@@ -1157,7 +1162,7 @@ function {:inline} $IsEqual'$eeee_MoveCoin_Coin'#0''(s1: $eeee_MoveCoin_Coin'#0'
     s1 == s2
 }
 
-// fun MoveCoin::balance_of<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:33:5+136
+// fun MoveCoin::balance_of<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:34:5+136
 procedure {:inline 1} $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'(_$t0: int) returns ($ret0: int)
 {
     // declare local variables
@@ -1171,54 +1176,54 @@ procedure {:inline 1} $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'(_$t0: int
     $t0 := _$t0;
 
     // bytecode translation starts here
-    // trace_local[owner]($t0) at ./sources/MoveCoin.move:33:5+1
-    assume {:print "$at(20,1274,1275)"} true;
+    // trace_local[owner]($t0) at ./sources/MoveCoin.move:34:5+1
+    assume {:print "$at(20,1306,1307)"} true;
     assume {:print "$track_local(1,0,0):", $t0} $t0 == $t0;
 
-    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:34:9+13
-    assume {:print "$at(20,1354,1367)"} true;
+    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:35:9+13
+    assume {:print "$at(20,1386,1399)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
         $t1 := $ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0);
     }
     if ($abort_flag) {
-        assume {:print "$at(20,1354,1367)"} true;
+        assume {:print "$at(20,1386,1399)"} true;
         $t2 := $abort_code;
         assume {:print "$track_abort(1,0):", $t2} $t2 == $t2;
         goto L2;
     }
 
-    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:34:9+44
+    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:35:9+44
     $t3 := $coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($t1);
 
-    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:34:9+50
+    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:35:9+50
     $t4 := $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t3);
 
-    // trace_return[0]($t4) at ./sources/MoveCoin.move:34:9+50
+    // trace_return[0]($t4) at ./sources/MoveCoin.move:35:9+50
     assume {:print "$track_return(1,0,0):", $t4} $t4 == $t4;
 
-    // label L1 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // label L1 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
 L1:
 
-    // return $t4 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // return $t4 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
     $ret0 := $t4;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:35:5+1
+    // label L2 at ./sources/MoveCoin.move:36:5+1
 L2:
 
-    // abort($t2) at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // abort($t2) at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
     $abort_code := $t2;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::balance_of<#0> [baseline] at ./sources/MoveCoin.move:33:5+136
+// fun MoveCoin::balance_of<#0> [baseline] at ./sources/MoveCoin.move:34:5+136
 procedure {:inline 1} $eeee_MoveCoin_balance_of'#0'(_$t0: int) returns ($ret0: int)
 {
     // declare local variables
@@ -1232,54 +1237,54 @@ procedure {:inline 1} $eeee_MoveCoin_balance_of'#0'(_$t0: int) returns ($ret0: i
     $t0 := _$t0;
 
     // bytecode translation starts here
-    // trace_local[owner]($t0) at ./sources/MoveCoin.move:33:5+1
-    assume {:print "$at(20,1274,1275)"} true;
+    // trace_local[owner]($t0) at ./sources/MoveCoin.move:34:5+1
+    assume {:print "$at(20,1306,1307)"} true;
     assume {:print "$track_local(1,0,0):", $t0} $t0 == $t0;
 
-    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:34:9+13
-    assume {:print "$at(20,1354,1367)"} true;
+    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:35:9+13
+    assume {:print "$at(20,1386,1399)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
         $t1 := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0);
     }
     if ($abort_flag) {
-        assume {:print "$at(20,1354,1367)"} true;
+        assume {:print "$at(20,1386,1399)"} true;
         $t2 := $abort_code;
         assume {:print "$track_abort(1,0):", $t2} $t2 == $t2;
         goto L2;
     }
 
-    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:34:9+44
+    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:35:9+44
     $t3 := $coin#$eeee_MoveCoin_Balance'#0'($t1);
 
-    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:34:9+50
+    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:35:9+50
     $t4 := $value#$eeee_MoveCoin_Coin'#0'($t3);
 
-    // trace_return[0]($t4) at ./sources/MoveCoin.move:34:9+50
+    // trace_return[0]($t4) at ./sources/MoveCoin.move:35:9+50
     assume {:print "$track_return(1,0,0):", $t4} $t4 == $t4;
 
-    // label L1 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // label L1 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
 L1:
 
-    // return $t4 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // return $t4 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
     $ret0 := $t4;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:35:5+1
+    // label L2 at ./sources/MoveCoin.move:36:5+1
 L2:
 
-    // abort($t2) at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // abort($t2) at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
     $abort_code := $t2;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::balance_of [verification] at ./sources/MoveCoin.move:33:5+136
+// fun MoveCoin::balance_of [verification] at ./sources/MoveCoin.move:34:5+136
 procedure {:timeLimit 40} $eeee_MoveCoin_balance_of$verify(_$t0: int) returns ($ret0: int)
 {
     // declare local variables
@@ -1297,73 +1302,73 @@ procedure {:timeLimit 40} $eeee_MoveCoin_balance_of$verify(_$t0: int) returns ($
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:33:5+1
-    assume {:print "$at(20,1274,1275)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:34:5+1
+    assume {:print "$at(20,1306,1307)"} true;
     assume $IsValid'address'($t0);
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:33:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:34:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // @0 := save_mem(MoveCoin::Balance<#0>) at ./sources/MoveCoin.move:33:5+1
+    // @0 := save_mem(MoveCoin::Balance<#0>) at ./sources/MoveCoin.move:34:5+1
     $eeee_MoveCoin_Balance'#0'_$memory#0 := $eeee_MoveCoin_Balance'#0'_$memory;
 
-    // trace_local[owner]($t0) at ./sources/MoveCoin.move:33:5+1
+    // trace_local[owner]($t0) at ./sources/MoveCoin.move:34:5+1
     assume {:print "$track_local(1,0,0):", $t0} $t0 == $t0;
 
-    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:34:9+13
-    assume {:print "$at(20,1354,1367)"} true;
+    // $t1 := get_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t2 at ./sources/MoveCoin.move:35:9+13
+    assume {:print "$at(20,1386,1399)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
         $t1 := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0);
     }
     if ($abort_flag) {
-        assume {:print "$at(20,1354,1367)"} true;
+        assume {:print "$at(20,1386,1399)"} true;
         $t2 := $abort_code;
         assume {:print "$track_abort(1,0):", $t2} $t2 == $t2;
         goto L2;
     }
 
-    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:34:9+44
+    // $t3 := get_field<MoveCoin::Balance<#0>>.coin($t1) at ./sources/MoveCoin.move:35:9+44
     $t3 := $coin#$eeee_MoveCoin_Balance'#0'($t1);
 
-    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:34:9+50
+    // $t4 := get_field<MoveCoin::Coin<#0>>.value($t3) at ./sources/MoveCoin.move:35:9+50
     $t4 := $value#$eeee_MoveCoin_Coin'#0'($t3);
 
-    // trace_return[0]($t4) at ./sources/MoveCoin.move:34:9+50
+    // trace_return[0]($t4) at ./sources/MoveCoin.move:35:9+50
     assume {:print "$track_return(1,0,0):", $t4} $t4 == $t4;
 
-    // label L1 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // label L1 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
 L1:
 
-    // assert Not(Not(exists[@0]<MoveCoin::Balance<#0>>($t0))) at ./sources/MoveCoin.move:39:9+44
-    assume {:print "$at(20,1478,1522)"} true;
-    assert {:msg "assert_failed(20,1478,1522): function does not abort under this condition"}
+    // assert Not(Not(exists[@0]<MoveCoin::Balance<#0>>($t0))) at ./sources/MoveCoin.move:40:9+44
+    assume {:print "$at(20,1510,1554)"} true;
+    assert {:msg "assert_failed(20,1510,1554): function does not abort under this condition"}
       !!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#0, $t0);
 
-    // return $t4 at ./sources/MoveCoin.move:39:9+44
+    // return $t4 at ./sources/MoveCoin.move:40:9+44
     $ret0 := $t4;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:35:5+1
-    assume {:print "$at(20,1409,1410)"} true;
+    // label L2 at ./sources/MoveCoin.move:36:5+1
+    assume {:print "$at(20,1441,1442)"} true;
 L2:
 
-    // assert Not(exists[@0]<MoveCoin::Balance<#0>>($t0)) at ./sources/MoveCoin.move:37:5+112
-    assume {:print "$at(20,1416,1528)"} true;
-    assert {:msg "assert_failed(20,1416,1528): abort not covered by any of the `aborts_if` clauses"}
+    // assert Not(exists[@0]<MoveCoin::Balance<#0>>($t0)) at ./sources/MoveCoin.move:38:5+112
+    assume {:print "$at(20,1448,1560)"} true;
+    assert {:msg "assert_failed(20,1448,1560): abort not covered by any of the `aborts_if` clauses"}
       !$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#0, $t0);
 
-    // abort($t2) at ./sources/MoveCoin.move:37:5+112
+    // abort($t2) at ./sources/MoveCoin.move:38:5+112
     $abort_code := $t2;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::deposit<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:57:5+295
+// fun MoveCoin::deposit<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:83:5+295
 procedure {:inline 1} $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'(_$t0: int, _$t1: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin') returns ()
 {
     // declare local variables
@@ -1372,11 +1377,13 @@ procedure {:inline 1} $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'(_$t0: int, _
     var $t4: int;
     var $t5: int;
     var $t6: int;
-    var $t7: $Mutation ($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin');
-    var $t8: $Mutation ($eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin');
-    var $t9: $Mutation (int);
-    var $t10: int;
-    var $t11: int;
+    var $t7: int;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: int;
     var $t0: int;
     var $t1: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
     var $temp_0'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'': $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
@@ -1386,100 +1393,108 @@ procedure {:inline 1} $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'(_$t0: int, _
     $t1 := _$t1;
 
     // bytecode translation starts here
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:57:5+1
-    assume {:print "$at(20,2338,2339)"} true;
+    // assume Identical($t5, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t5 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0))));
+
+    // assume Identical($t6, select MoveCoin::Coin.value($t1)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t6 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1));
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:83:5+1
+    assume {:print "$at(20,3321,3322)"} true;
     assume {:print "$track_local(1,1,0):", $t0} $t0 == $t0;
 
-    // trace_local[check]($t1) at ./sources/MoveCoin.move:57:5+1
+    // trace_local[check]($t1) at ./sources/MoveCoin.move:83:5+1
     assume {:print "$track_local(1,1,1):", $t1} $t1 == $t1;
 
-    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:58:23+26
-    assume {:print "$at(20,2438,2464)"} true;
-    call $t5 := $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'($t0);
+    // $t7 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:84:23+26
+    assume {:print "$at(20,3421,3447)"} true;
+    call $t7 := $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2438,2464)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3421,3447)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // trace_local[balance]($t5) at ./sources/MoveCoin.move:58:13+7
-    assume {:print "$track_local(1,1,2):", $t5} $t5 == $t5;
+    // trace_local[balance]($t7) at ./sources/MoveCoin.move:84:13+7
+    assume {:print "$track_local(1,1,2):", $t7} $t7 == $t7;
 
-    // $t7 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:59:32+17
-    assume {:print "$at(20,2497,2514)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:85:32+17
+    assume {:print "$at(20,3480,3497)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t7 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2497,2514)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3480,3497)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // $t8 := borrow_field<MoveCoin::Balance<#0>>.coin($t7) at ./sources/MoveCoin.move:59:32+47
-    $t8 := $ChildMutation($t7, 0, $coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($Dereference($t7)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:85:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($Dereference($t9)));
 
-    // $t9 := borrow_field<MoveCoin::Coin<#0>>.value($t8) at ./sources/MoveCoin.move:59:27+58
-    $t9 := $ChildMutation($t8, 0, $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($Dereference($t8)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:85:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t9) at ./sources/MoveCoin.move:59:13+11
-    $temp_0'u64' := $Dereference($t9);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:85:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,1,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t10 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:60:13+14
-    assume {:print "$at(20,2564,2578)"} true;
-    $t10 := $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1);
+    // $t12 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:86:13+14
+    assume {:print "$at(20,3547,3561)"} true;
+    $t12 := $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1);
 
-    // trace_local[value]($t10) at ./sources/MoveCoin.move:60:20+5
-    assume {:print "$track_local(1,1,4):", $t10} $t10 == $t10;
+    // trace_local[value]($t12) at ./sources/MoveCoin.move:86:20+5
+    assume {:print "$track_local(1,1,4):", $t12} $t12 == $t12;
 
-    // $t11 := +($t5, $t10) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:61:32+1
-    assume {:print "$at(20,2619,2620)"} true;
-    call $t11 := $AddU64($t5, $t10);
+    // $t13 := +($t7, $t12) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:87:32+1
+    assume {:print "$at(20,3602,3603)"} true;
+    call $t13 := $AddU64($t7, $t12);
     if ($abort_flag) {
-        assume {:print "$at(20,2619,2620)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3602,3603)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // write_ref($t9, $t11) at ./sources/MoveCoin.move:61:9+30
-    $t9 := $UpdateMutation($t9, $t11);
+    // write_ref($t11, $t13) at ./sources/MoveCoin.move:87:9+30
+    $t11 := $UpdateMutation($t11, $t13);
 
-    // write_back[Reference($t8).value (u64)]($t9) at ./sources/MoveCoin.move:61:9+30
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''_value($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:87:9+30
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t7).coin (MoveCoin::Coin<#0>)]($t8) at ./sources/MoveCoin.move:61:9+30
-    $t7 := $UpdateMutation($t7, $Update'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''_coin($Dereference($t7), $Dereference($t8)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:87:9+30
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t7) at ./sources/MoveCoin.move:61:9+30
-    $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $GlobalLocationAddress($t7),
-        $Dereference($t7));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:87:9+30
+    $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // label L1 at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // label L1 at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
 L1:
 
-    // return () at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // return () at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:62:5+1
+    // label L2 at ./sources/MoveCoin.move:88:5+1
 L2:
 
-    // abort($t6) at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
-    $abort_code := $t6;
+    // abort($t8) at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
+    $abort_code := $t8;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::deposit<#0> [baseline] at ./sources/MoveCoin.move:57:5+295
+// fun MoveCoin::deposit<#0> [baseline] at ./sources/MoveCoin.move:83:5+295
 procedure {:inline 1} $eeee_MoveCoin_deposit'#0'(_$t0: int, _$t1: $eeee_MoveCoin_Coin'#0') returns ()
 {
     // declare local variables
@@ -1488,11 +1503,13 @@ procedure {:inline 1} $eeee_MoveCoin_deposit'#0'(_$t0: int, _$t1: $eeee_MoveCoin
     var $t4: int;
     var $t5: int;
     var $t6: int;
-    var $t7: $Mutation ($eeee_MoveCoin_Balance'#0');
-    var $t8: $Mutation ($eeee_MoveCoin_Coin'#0');
-    var $t9: $Mutation (int);
-    var $t10: int;
-    var $t11: int;
+    var $t7: int;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'#0');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'#0');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: int;
     var $t0: int;
     var $t1: $eeee_MoveCoin_Coin'#0';
     var $temp_0'$eeee_MoveCoin_Coin'#0'': $eeee_MoveCoin_Coin'#0';
@@ -1502,100 +1519,108 @@ procedure {:inline 1} $eeee_MoveCoin_deposit'#0'(_$t0: int, _$t1: $eeee_MoveCoin
     $t1 := _$t1;
 
     // bytecode translation starts here
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:57:5+1
-    assume {:print "$at(20,2338,2339)"} true;
+    // assume Identical($t5, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t5 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // assume Identical($t6, select MoveCoin::Coin.value($t1)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t6 == $value#$eeee_MoveCoin_Coin'#0'($t1));
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:83:5+1
+    assume {:print "$at(20,3321,3322)"} true;
     assume {:print "$track_local(1,1,0):", $t0} $t0 == $t0;
 
-    // trace_local[check]($t1) at ./sources/MoveCoin.move:57:5+1
+    // trace_local[check]($t1) at ./sources/MoveCoin.move:83:5+1
     assume {:print "$track_local(1,1,1):", $t1} $t1 == $t1;
 
-    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:58:23+26
-    assume {:print "$at(20,2438,2464)"} true;
-    call $t5 := $eeee_MoveCoin_balance_of'#0'($t0);
+    // $t7 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:84:23+26
+    assume {:print "$at(20,3421,3447)"} true;
+    call $t7 := $eeee_MoveCoin_balance_of'#0'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2438,2464)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3421,3447)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // trace_local[balance]($t5) at ./sources/MoveCoin.move:58:13+7
-    assume {:print "$track_local(1,1,2):", $t5} $t5 == $t5;
+    // trace_local[balance]($t7) at ./sources/MoveCoin.move:84:13+7
+    assume {:print "$track_local(1,1,2):", $t7} $t7 == $t7;
 
-    // $t7 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:59:32+17
-    assume {:print "$at(20,2497,2514)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:85:32+17
+    assume {:print "$at(20,3480,3497)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t7 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2497,2514)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3480,3497)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // $t8 := borrow_field<MoveCoin::Balance<#0>>.coin($t7) at ./sources/MoveCoin.move:59:32+47
-    $t8 := $ChildMutation($t7, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t7)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:85:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t9)));
 
-    // $t9 := borrow_field<MoveCoin::Coin<#0>>.value($t8) at ./sources/MoveCoin.move:59:27+58
-    $t9 := $ChildMutation($t8, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t8)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:85:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t9) at ./sources/MoveCoin.move:59:13+11
-    $temp_0'u64' := $Dereference($t9);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:85:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,1,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t10 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:60:13+14
-    assume {:print "$at(20,2564,2578)"} true;
-    $t10 := $value#$eeee_MoveCoin_Coin'#0'($t1);
+    // $t12 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:86:13+14
+    assume {:print "$at(20,3547,3561)"} true;
+    $t12 := $value#$eeee_MoveCoin_Coin'#0'($t1);
 
-    // trace_local[value]($t10) at ./sources/MoveCoin.move:60:20+5
-    assume {:print "$track_local(1,1,4):", $t10} $t10 == $t10;
+    // trace_local[value]($t12) at ./sources/MoveCoin.move:86:20+5
+    assume {:print "$track_local(1,1,4):", $t12} $t12 == $t12;
 
-    // $t11 := +($t5, $t10) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:61:32+1
-    assume {:print "$at(20,2619,2620)"} true;
-    call $t11 := $AddU64($t5, $t10);
+    // $t13 := +($t7, $t12) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:87:32+1
+    assume {:print "$at(20,3602,3603)"} true;
+    call $t13 := $AddU64($t7, $t12);
     if ($abort_flag) {
-        assume {:print "$at(20,2619,2620)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3602,3603)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // write_ref($t9, $t11) at ./sources/MoveCoin.move:61:9+30
-    $t9 := $UpdateMutation($t9, $t11);
+    // write_ref($t11, $t13) at ./sources/MoveCoin.move:87:9+30
+    $t11 := $UpdateMutation($t11, $t13);
 
-    // write_back[Reference($t8).value (u64)]($t9) at ./sources/MoveCoin.move:61:9+30
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:87:9+30
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t7).coin (MoveCoin::Coin<#0>)]($t8) at ./sources/MoveCoin.move:61:9+30
-    $t7 := $UpdateMutation($t7, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t7), $Dereference($t8)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:87:9+30
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t7) at ./sources/MoveCoin.move:61:9+30
-    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t7),
-        $Dereference($t7));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:87:9+30
+    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // label L1 at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // label L1 at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
 L1:
 
-    // return () at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // return () at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:62:5+1
+    // label L2 at ./sources/MoveCoin.move:88:5+1
 L2:
 
-    // abort($t6) at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
-    $abort_code := $t6;
+    // abort($t8) at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
+    $abort_code := $t8;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::deposit [verification] at ./sources/MoveCoin.move:57:5+295
+// fun MoveCoin::deposit [verification] at ./sources/MoveCoin.move:83:5+295
 procedure {:timeLimit 40} $eeee_MoveCoin_deposit$verify(_$t0: int, _$t1: $eeee_MoveCoin_Coin'#0') returns ()
 {
     // declare local variables
@@ -1604,16 +1629,20 @@ procedure {:timeLimit 40} $eeee_MoveCoin_deposit$verify(_$t0: int, _$t1: $eeee_M
     var $t4: int;
     var $t5: int;
     var $t6: int;
-    var $t7: $Mutation ($eeee_MoveCoin_Balance'#0');
-    var $t8: $Mutation ($eeee_MoveCoin_Coin'#0');
-    var $t9: $Mutation (int);
-    var $t10: int;
-    var $t11: int;
+    var $t7: int;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'#0');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'#0');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: int;
+    var $t14: int;
     var $t0: int;
     var $t1: $eeee_MoveCoin_Coin'#0';
     var $temp_0'$eeee_MoveCoin_Coin'#0'': $eeee_MoveCoin_Coin'#0';
     var $temp_0'address': int;
     var $temp_0'u64': int;
+    var $eeee_MoveCoin_Balance'#0'_$memory#4: $Memory $eeee_MoveCoin_Balance'#0';
     $t0 := _$t0;
     $t1 := _$t1;
 
@@ -1621,115 +1650,152 @@ procedure {:timeLimit 40} $eeee_MoveCoin_deposit$verify(_$t0: int, _$t1: $eeee_M
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:57:5+1
-    assume {:print "$at(20,2338,2339)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:83:5+1
+    assume {:print "$at(20,3321,3322)"} true;
     assume $IsValid'address'($t0);
 
-    // assume WellFormed($t1) at ./sources/MoveCoin.move:57:5+1
+    // assume WellFormed($t1) at ./sources/MoveCoin.move:83:5+1
     assume $IsValid'$eeee_MoveCoin_Coin'#0''($t1);
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:57:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:83:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:57:5+1
+    // assume Identical($t5, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t5 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // assume Identical($t6, select MoveCoin::Coin.value($t1)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t6 == $value#$eeee_MoveCoin_Coin'#0'($t1));
+
+    // @4 := save_mem(MoveCoin::Balance<#0>) at ./sources/MoveCoin.move:83:5+1
+    assume {:print "$at(20,3321,3322)"} true;
+    $eeee_MoveCoin_Balance'#0'_$memory#4 := $eeee_MoveCoin_Balance'#0'_$memory;
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:83:5+1
     assume {:print "$track_local(1,1,0):", $t0} $t0 == $t0;
 
-    // trace_local[check]($t1) at ./sources/MoveCoin.move:57:5+1
+    // trace_local[check]($t1) at ./sources/MoveCoin.move:83:5+1
     assume {:print "$track_local(1,1,1):", $t1} $t1 == $t1;
 
-    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:58:23+26
-    assume {:print "$at(20,2438,2464)"} true;
-    call $t5 := $eeee_MoveCoin_balance_of'#0'($t0);
+    // $t7 := MoveCoin::balance_of<#0>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:84:23+26
+    assume {:print "$at(20,3421,3447)"} true;
+    call $t7 := $eeee_MoveCoin_balance_of'#0'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2438,2464)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3421,3447)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // trace_local[balance]($t5) at ./sources/MoveCoin.move:58:13+7
-    assume {:print "$track_local(1,1,2):", $t5} $t5 == $t5;
+    // trace_local[balance]($t7) at ./sources/MoveCoin.move:84:13+7
+    assume {:print "$track_local(1,1,2):", $t7} $t7 == $t7;
 
-    // $t7 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:59:32+17
-    assume {:print "$at(20,2497,2514)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:85:32+17
+    assume {:print "$at(20,3480,3497)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t7 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2497,2514)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3480,3497)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // $t8 := borrow_field<MoveCoin::Balance<#0>>.coin($t7) at ./sources/MoveCoin.move:59:32+47
-    $t8 := $ChildMutation($t7, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t7)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:85:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t9)));
 
-    // $t9 := borrow_field<MoveCoin::Coin<#0>>.value($t8) at ./sources/MoveCoin.move:59:27+58
-    $t9 := $ChildMutation($t8, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t8)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:85:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t9) at ./sources/MoveCoin.move:59:13+11
-    $temp_0'u64' := $Dereference($t9);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:85:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,1,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t10 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:60:13+14
-    assume {:print "$at(20,2564,2578)"} true;
-    $t10 := $value#$eeee_MoveCoin_Coin'#0'($t1);
+    // $t12 := unpack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:86:13+14
+    assume {:print "$at(20,3547,3561)"} true;
+    $t12 := $value#$eeee_MoveCoin_Coin'#0'($t1);
 
-    // trace_local[value]($t10) at ./sources/MoveCoin.move:60:20+5
-    assume {:print "$track_local(1,1,4):", $t10} $t10 == $t10;
+    // trace_local[value]($t12) at ./sources/MoveCoin.move:86:20+5
+    assume {:print "$track_local(1,1,4):", $t12} $t12 == $t12;
 
-    // $t11 := +($t5, $t10) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:61:32+1
-    assume {:print "$at(20,2619,2620)"} true;
-    call $t11 := $AddU64($t5, $t10);
+    // $t13 := +($t7, $t12) on_abort goto L2 with $t8 at ./sources/MoveCoin.move:87:32+1
+    assume {:print "$at(20,3602,3603)"} true;
+    call $t13 := $AddU64($t7, $t12);
     if ($abort_flag) {
-        assume {:print "$at(20,2619,2620)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,1):", $t6} $t6 == $t6;
+        assume {:print "$at(20,3602,3603)"} true;
+        $t8 := $abort_code;
+        assume {:print "$track_abort(1,1):", $t8} $t8 == $t8;
         goto L2;
     }
 
-    // write_ref($t9, $t11) at ./sources/MoveCoin.move:61:9+30
-    $t9 := $UpdateMutation($t9, $t11);
+    // write_ref($t11, $t13) at ./sources/MoveCoin.move:87:9+30
+    $t11 := $UpdateMutation($t11, $t13);
 
-    // write_back[Reference($t8).value (u64)]($t9) at ./sources/MoveCoin.move:61:9+30
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:87:9+30
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t7).coin (MoveCoin::Coin<#0>)]($t8) at ./sources/MoveCoin.move:61:9+30
-    $t7 := $UpdateMutation($t7, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t7), $Dereference($t8)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:87:9+30
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t7) at ./sources/MoveCoin.move:61:9+30
-    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t7),
-        $Dereference($t7));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:87:9+30
+    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // label L1 at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // label L1 at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
 L1:
 
-    // return () at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
+    // assume Identical($t14, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:97:9+67
+    assume {:print "$at(20,3855,3922)"} true;
+    assume ($t14 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // assert Not(Not(exists[@4]<MoveCoin::Balance<#0>>($t0))) at ./sources/MoveCoin.move:94:9+43
+    assume {:print "$at(20,3751,3794)"} true;
+    assert {:msg "assert_failed(20,3751,3794): function does not abort under this condition"}
+      !!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#4, $t0);
+
+    // assert Not(Gt(Add($t5, $t6), 18446744073709551615)) at ./sources/MoveCoin.move:95:9+42
+    assume {:print "$at(20,3803,3845)"} true;
+    assert {:msg "assert_failed(20,3803,3845): function does not abort under this condition"}
+      !(($t5 + $t6) > 18446744073709551615);
+
+    // assert Eq<u64>($t14, Add($t5, $t6)) at ./sources/MoveCoin.move:98:9+46
+    assume {:print "$at(20,3931,3977)"} true;
+    assert {:msg "assert_failed(20,3931,3977): post-condition does not hold"}
+      $IsEqual'u64'($t14, ($t5 + $t6));
+
+    // return () at ./sources/MoveCoin.move:98:9+46
     return;
 
-    // label L2 at ./sources/MoveCoin.move:62:5+1
+    // label L2 at ./sources/MoveCoin.move:88:5+1
+    assume {:print "$at(20,3615,3616)"} true;
 L2:
 
-    // abort($t6) at ./sources/MoveCoin.move:62:5+1
-    assume {:print "$at(20,2632,2633)"} true;
-    $abort_code := $t6;
+    // assert Or(Not(exists[@4]<MoveCoin::Balance<#0>>($t0)), Gt(Add($t5, $t6), 18446744073709551615)) at ./sources/MoveCoin.move:90:5+361
+    assume {:print "$at(20,3622,3983)"} true;
+    assert {:msg "assert_failed(20,3622,3983): abort not covered by any of the `aborts_if` clauses"}
+      (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#4, $t0) || (($t5 + $t6) > 18446744073709551615));
+
+    // abort($t8) at ./sources/MoveCoin.move:90:5+361
+    $abort_code := $t8;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::mint<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:28:5+244
+// fun MoveCoin::mint<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:29:5+244
 procedure {:inline 1} $eeee_MoveCoin_mint'$eeee_OddCoin_OddCoin'(_$t0: int, _$t1: int, _$t2: $eeee_OddCoin_OddCoin) returns ()
 {
     // declare local variables
     var $t3: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
     var $t4: int;
+    var $t5: int;
+    var $t6: int;
     var $t0: int;
     var $t1: int;
     var $t2: $eeee_OddCoin_OddCoin;
@@ -1741,54 +1807,65 @@ procedure {:inline 1} $eeee_MoveCoin_mint'$eeee_OddCoin_OddCoin'(_$t0: int, _$t1
     $t2 := _$t2;
 
     // bytecode translation starts here
-    // trace_local[mint_addr]($t0) at ./sources/MoveCoin.move:28:5+1
-    assume {:print "$at(20,1024,1025)"} true;
+    // trace_local[mint_addr]($t0) at ./sources/MoveCoin.move:29:5+1
+    assume {:print "$at(20,1056,1057)"} true;
     assume {:print "$track_local(1,2,0):", $t0} $t0 == $t0;
 
-    // trace_local[amount]($t1) at ./sources/MoveCoin.move:28:5+1
+    // trace_local[amount]($t1) at ./sources/MoveCoin.move:29:5+1
     assume {:print "$track_local(1,2,1):", $t1} $t1 == $t1;
 
-    // trace_local[_witness]($t2) at ./sources/MoveCoin.move:28:5+1
+    // trace_local[_witness]($t2) at ./sources/MoveCoin.move:29:5+1
     assume {:print "$track_local(1,2,2):", $t2} $t2 == $t2;
 
-    // $t3 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:30:28+32
-    assume {:print "$at(20,1228,1260)"} true;
+    // $t3 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:31:28+32
+    assume {:print "$at(20,1260,1292)"} true;
     $t3 := $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1);
 
-    // MoveCoin::deposit<#0>($t0, $t3) on_abort goto L2 with $t4 at ./sources/MoveCoin.move:30:9+52
+    // assume Identical($t4, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t4 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0))));
+
+    // assume Identical($t5, select MoveCoin::Coin.value($t3)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t5 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t3));
+
+    // MoveCoin::deposit<#0>($t0, $t3) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:31:9+52
+    assume {:print "$at(20,1241,1293)"} true;
     call $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'($t0, $t3);
     if ($abort_flag) {
-        assume {:print "$at(20,1209,1261)"} true;
-        $t4 := $abort_code;
-        assume {:print "$track_abort(1,2):", $t4} $t4 == $t4;
+        assume {:print "$at(20,1241,1293)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,2):", $t6} $t6 == $t6;
         goto L2;
     }
 
-    // label L1 at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
+    // label L1 at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
 L1:
 
-    // return () at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
+    // return () at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:31:5+1
+    // label L2 at ./sources/MoveCoin.move:32:5+1
 L2:
 
-    // abort($t4) at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
-    $abort_code := $t4;
+    // abort($t6) at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
+    $abort_code := $t6;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::mint [verification] at ./sources/MoveCoin.move:28:5+244
+// fun MoveCoin::mint [verification] at ./sources/MoveCoin.move:29:5+244
 procedure {:timeLimit 40} $eeee_MoveCoin_mint$verify(_$t0: int, _$t1: int, _$t2: #0) returns ()
 {
     // declare local variables
     var $t3: $eeee_MoveCoin_Coin'#0';
     var $t4: int;
+    var $t5: int;
+    var $t6: int;
     var $t0: int;
     var $t1: int;
     var $t2: #0;
@@ -1803,62 +1880,71 @@ procedure {:timeLimit 40} $eeee_MoveCoin_mint$verify(_$t0: int, _$t1: int, _$t2:
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:28:5+1
-    assume {:print "$at(20,1024,1025)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:29:5+1
+    assume {:print "$at(20,1056,1057)"} true;
     assume $IsValid'address'($t0);
 
-    // assume WellFormed($t1) at ./sources/MoveCoin.move:28:5+1
+    // assume WellFormed($t1) at ./sources/MoveCoin.move:29:5+1
     assume $IsValid'u64'($t1);
 
-    // assume WellFormed($t2) at ./sources/MoveCoin.move:28:5+1
+    // assume WellFormed($t2) at ./sources/MoveCoin.move:29:5+1
     assume $IsValid'#0'($t2);
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:28:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:29:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // trace_local[mint_addr]($t0) at ./sources/MoveCoin.move:28:5+1
+    // trace_local[mint_addr]($t0) at ./sources/MoveCoin.move:29:5+1
     assume {:print "$track_local(1,2,0):", $t0} $t0 == $t0;
 
-    // trace_local[amount]($t1) at ./sources/MoveCoin.move:28:5+1
+    // trace_local[amount]($t1) at ./sources/MoveCoin.move:29:5+1
     assume {:print "$track_local(1,2,1):", $t1} $t1 == $t1;
 
-    // trace_local[_witness]($t2) at ./sources/MoveCoin.move:28:5+1
+    // trace_local[_witness]($t2) at ./sources/MoveCoin.move:29:5+1
     assume {:print "$track_local(1,2,2):", $t2} $t2 == $t2;
 
-    // $t3 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:30:28+32
-    assume {:print "$at(20,1228,1260)"} true;
+    // $t3 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:31:28+32
+    assume {:print "$at(20,1260,1292)"} true;
     $t3 := $eeee_MoveCoin_Coin'#0'($t1);
 
-    // MoveCoin::deposit<#0>($t0, $t3) on_abort goto L2 with $t4 at ./sources/MoveCoin.move:30:9+52
+    // assume Identical($t4, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t4 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // assume Identical($t5, select MoveCoin::Coin.value($t3)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t5 == $value#$eeee_MoveCoin_Coin'#0'($t3));
+
+    // MoveCoin::deposit<#0>($t0, $t3) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:31:9+52
+    assume {:print "$at(20,1241,1293)"} true;
     call $eeee_MoveCoin_deposit'#0'($t0, $t3);
     if ($abort_flag) {
-        assume {:print "$at(20,1209,1261)"} true;
-        $t4 := $abort_code;
-        assume {:print "$track_abort(1,2):", $t4} $t4 == $t4;
+        assume {:print "$at(20,1241,1293)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,2):", $t6} $t6 == $t6;
         goto L2;
     }
 
-    // label L1 at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
+    // label L1 at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
 L1:
 
-    // return () at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
+    // return () at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
     return;
 
-    // label L2 at ./sources/MoveCoin.move:31:5+1
+    // label L2 at ./sources/MoveCoin.move:32:5+1
 L2:
 
-    // abort($t4) at ./sources/MoveCoin.move:31:5+1
-    assume {:print "$at(20,1267,1268)"} true;
-    $abort_code := $t4;
+    // abort($t6) at ./sources/MoveCoin.move:32:5+1
+    assume {:print "$at(20,1299,1300)"} true;
+    $abort_code := $t6;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::publish_balance<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:20:5+278
+// fun MoveCoin::publish_balance<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:21:5+278
 procedure {:inline 1} $eeee_MoveCoin_publish_balance'$eeee_OddCoin_OddCoin'(_$t0: $signer) returns ()
 {
     // declare local variables
@@ -1876,96 +1962,96 @@ procedure {:inline 1} $eeee_MoveCoin_publish_balance'$eeee_OddCoin_OddCoin'(_$t0
     $t0 := _$t0;
 
     // bytecode translation starts here
-    // trace_local[account]($t0) at ./sources/MoveCoin.move:20:5+1
-    assume {:print "$at(20,569,570)"} true;
+    // trace_local[account]($t0) at ./sources/MoveCoin.move:21:5+1
+    assume {:print "$at(20,601,602)"} true;
     assume {:print "$track_local(1,3,0):", $t0} $t0 == $t0;
 
-    // $t2 := signer::address_of($t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:22:44+27
-    assume {:print "$at(20,723,750)"} true;
+    // $t2 := signer::address_of($t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:23:44+27
+    assume {:print "$at(20,755,782)"} true;
     call $t2 := $1_signer_address_of($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,723,750)"} true;
+        assume {:print "$at(20,755,782)"} true;
         $t3 := $abort_code;
         assume {:print "$track_abort(1,3):", $t3} $t3 == $t3;
         goto L3;
     }
 
-    // $t4 := exists<MoveCoin::Balance<#0>>($t2) at ./sources/MoveCoin.move:22:18+6
+    // $t4 := exists<MoveCoin::Balance<#0>>($t2) at ./sources/MoveCoin.move:23:18+6
     $t4 := $ResourceExists($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t2);
 
-    // $t5 := !($t4) at ./sources/MoveCoin.move:22:17+1
+    // $t5 := !($t4) at ./sources/MoveCoin.move:23:17+1
     call $t5 := $Not($t4);
 
-    // if ($t5) goto L0 else goto L1 at ./sources/MoveCoin.move:22:9+86
+    // if ($t5) goto L0 else goto L1 at ./sources/MoveCoin.move:23:9+86
     if ($t5) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:22:9+86
+    // label L1 at ./sources/MoveCoin.move:23:9+86
 L1:
 
-    // $t6 := 2 at ./sources/MoveCoin.move:22:74+20
-    assume {:print "$at(20,753,773)"} true;
+    // $t6 := 2 at ./sources/MoveCoin.move:23:74+20
+    assume {:print "$at(20,785,805)"} true;
     $t6 := 2;
     assume $IsValid'u64'($t6);
 
-    // trace_abort($t6) at ./sources/MoveCoin.move:22:9+86
-    assume {:print "$at(20,688,774)"} true;
+    // trace_abort($t6) at ./sources/MoveCoin.move:23:9+86
+    assume {:print "$at(20,720,806)"} true;
     assume {:print "$track_abort(1,3):", $t6} $t6 == $t6;
 
-    // $t3 := move($t6) at ./sources/MoveCoin.move:22:9+86
+    // $t3 := move($t6) at ./sources/MoveCoin.move:23:9+86
     $t3 := $t6;
 
-    // goto L3 at ./sources/MoveCoin.move:22:9+86
+    // goto L3 at ./sources/MoveCoin.move:23:9+86
     goto L3;
 
-    // label L0 at ./sources/MoveCoin.move:23:17+7
-    assume {:print "$at(20,792,799)"} true;
+    // label L0 at ./sources/MoveCoin.move:24:17+7
+    assume {:print "$at(20,824,831)"} true;
 L0:
 
-    // $t7 := 0 at ./sources/MoveCoin.move:21:50+1
-    assume {:print "$at(20,675,676)"} true;
+    // $t7 := 0 at ./sources/MoveCoin.move:22:50+1
+    assume {:print "$at(20,707,708)"} true;
     $t7 := 0;
     assume $IsValid'u64'($t7);
 
-    // $t8 := pack MoveCoin::Coin<#0>($t7) at ./sources/MoveCoin.move:21:26+27
+    // $t8 := pack MoveCoin::Coin<#0>($t7) at ./sources/MoveCoin.move:22:26+27
     $t8 := $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t7);
 
-    // $t9 := pack MoveCoin::Balance<#0>($t8) at ./sources/MoveCoin.move:23:26+38
-    assume {:print "$at(20,801,839)"} true;
+    // $t9 := pack MoveCoin::Balance<#0>($t8) at ./sources/MoveCoin.move:24:26+38
+    assume {:print "$at(20,833,871)"} true;
     $t9 := $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($t8);
 
-    // move_to<MoveCoin::Balance<#0>>($t9, $t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:23:9+7
+    // move_to<MoveCoin::Balance<#0>>($t9, $t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:24:9+7
     if ($ResourceExists($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $addr#$signer($t0))) {
         call $ExecFailureAbort();
     } else {
         $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $addr#$signer($t0), $t9);
     }
     if ($abort_flag) {
-        assume {:print "$at(20,784,791)"} true;
+        assume {:print "$at(20,816,823)"} true;
         $t3 := $abort_code;
         assume {:print "$track_abort(1,3):", $t3} $t3 == $t3;
         goto L3;
     }
 
-    // label L2 at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // label L2 at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
 L2:
 
-    // return () at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // return () at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
     return;
 
-    // label L3 at ./sources/MoveCoin.move:24:5+1
+    // label L3 at ./sources/MoveCoin.move:25:5+1
 L3:
 
-    // abort($t3) at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // abort($t3) at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
     $abort_code := $t3;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::publish_balance [verification] at ./sources/MoveCoin.move:20:5+278
+// fun MoveCoin::publish_balance [verification] at ./sources/MoveCoin.move:21:5+278
 procedure {:timeLimit 40} $eeee_MoveCoin_publish_balance$verify(_$t0: $signer) returns ()
 {
     // declare local variables
@@ -1986,110 +2072,119 @@ procedure {:timeLimit 40} $eeee_MoveCoin_publish_balance$verify(_$t0: $signer) r
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:20:5+1
-    assume {:print "$at(20,569,570)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:21:5+1
+    assume {:print "$at(20,601,602)"} true;
     assume $IsValid'signer'($t0) && $1_signer_is_txn_signer($t0) && $1_signer_is_txn_signer_addr($addr#$signer($t0));
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:20:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:21:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // trace_local[account]($t0) at ./sources/MoveCoin.move:20:5+1
+    // trace_local[account]($t0) at ./sources/MoveCoin.move:21:5+1
     assume {:print "$track_local(1,3,0):", $t0} $t0 == $t0;
 
-    // $t2 := signer::address_of($t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:22:44+27
-    assume {:print "$at(20,723,750)"} true;
+    // $t2 := signer::address_of($t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:23:44+27
+    assume {:print "$at(20,755,782)"} true;
     call $t2 := $1_signer_address_of($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,723,750)"} true;
+        assume {:print "$at(20,755,782)"} true;
         $t3 := $abort_code;
         assume {:print "$track_abort(1,3):", $t3} $t3 == $t3;
         goto L3;
     }
 
-    // $t4 := exists<MoveCoin::Balance<#0>>($t2) at ./sources/MoveCoin.move:22:18+6
+    // $t4 := exists<MoveCoin::Balance<#0>>($t2) at ./sources/MoveCoin.move:23:18+6
     $t4 := $ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t2);
 
-    // $t5 := !($t4) at ./sources/MoveCoin.move:22:17+1
+    // $t5 := !($t4) at ./sources/MoveCoin.move:23:17+1
     call $t5 := $Not($t4);
 
-    // if ($t5) goto L0 else goto L1 at ./sources/MoveCoin.move:22:9+86
+    // if ($t5) goto L0 else goto L1 at ./sources/MoveCoin.move:23:9+86
     if ($t5) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:22:9+86
+    // label L1 at ./sources/MoveCoin.move:23:9+86
 L1:
 
-    // $t6 := 2 at ./sources/MoveCoin.move:22:74+20
-    assume {:print "$at(20,753,773)"} true;
+    // $t6 := 2 at ./sources/MoveCoin.move:23:74+20
+    assume {:print "$at(20,785,805)"} true;
     $t6 := 2;
     assume $IsValid'u64'($t6);
 
-    // trace_abort($t6) at ./sources/MoveCoin.move:22:9+86
-    assume {:print "$at(20,688,774)"} true;
+    // trace_abort($t6) at ./sources/MoveCoin.move:23:9+86
+    assume {:print "$at(20,720,806)"} true;
     assume {:print "$track_abort(1,3):", $t6} $t6 == $t6;
 
-    // $t3 := move($t6) at ./sources/MoveCoin.move:22:9+86
+    // $t3 := move($t6) at ./sources/MoveCoin.move:23:9+86
     $t3 := $t6;
 
-    // goto L3 at ./sources/MoveCoin.move:22:9+86
+    // goto L3 at ./sources/MoveCoin.move:23:9+86
     goto L3;
 
-    // label L0 at ./sources/MoveCoin.move:23:17+7
-    assume {:print "$at(20,792,799)"} true;
+    // label L0 at ./sources/MoveCoin.move:24:17+7
+    assume {:print "$at(20,824,831)"} true;
 L0:
 
-    // $t7 := 0 at ./sources/MoveCoin.move:21:50+1
-    assume {:print "$at(20,675,676)"} true;
+    // $t7 := 0 at ./sources/MoveCoin.move:22:50+1
+    assume {:print "$at(20,707,708)"} true;
     $t7 := 0;
     assume $IsValid'u64'($t7);
 
-    // $t8 := pack MoveCoin::Coin<#0>($t7) at ./sources/MoveCoin.move:21:26+27
+    // $t8 := pack MoveCoin::Coin<#0>($t7) at ./sources/MoveCoin.move:22:26+27
     $t8 := $eeee_MoveCoin_Coin'#0'($t7);
 
-    // $t9 := pack MoveCoin::Balance<#0>($t8) at ./sources/MoveCoin.move:23:26+38
-    assume {:print "$at(20,801,839)"} true;
+    // $t9 := pack MoveCoin::Balance<#0>($t8) at ./sources/MoveCoin.move:24:26+38
+    assume {:print "$at(20,833,871)"} true;
     $t9 := $eeee_MoveCoin_Balance'#0'($t8);
 
-    // move_to<MoveCoin::Balance<#0>>($t9, $t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:23:9+7
+    // move_to<MoveCoin::Balance<#0>>($t9, $t0) on_abort goto L3 with $t3 at ./sources/MoveCoin.move:24:9+7
     if ($ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $addr#$signer($t0))) {
         call $ExecFailureAbort();
     } else {
         $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $addr#$signer($t0), $t9);
     }
     if ($abort_flag) {
-        assume {:print "$at(20,784,791)"} true;
+        assume {:print "$at(20,816,823)"} true;
         $t3 := $abort_code;
         assume {:print "$track_abort(1,3):", $t3} $t3 == $t3;
         goto L3;
     }
 
-    // label L2 at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // label L2 at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
 L2:
 
-    // return () at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // return () at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
     return;
 
-    // label L3 at ./sources/MoveCoin.move:24:5+1
+    // label L3 at ./sources/MoveCoin.move:25:5+1
 L3:
 
-    // abort($t3) at ./sources/MoveCoin.move:24:5+1
-    assume {:print "$at(20,846,847)"} true;
+    // abort($t3) at ./sources/MoveCoin.move:25:5+1
+    assume {:print "$at(20,878,879)"} true;
     $abort_code := $t3;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::transfer<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:44:5+233
+// fun MoveCoin::transfer<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:45:5+315
 procedure {:inline 1} $eeee_MoveCoin_transfer'$eeee_OddCoin_OddCoin'(_$t0: $signer, _$t1: int, _$t2: int, _$t3: $eeee_OddCoin_OddCoin) returns ()
 {
     // declare local variables
     var $t4: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
     var $t5: int;
     var $t6: int;
-    var $t7: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
+    var $t7: int;
+    var $t8: int;
+    var $t9: int;
+    var $t10: int;
+    var $t11: bool;
+    var $t12: int;
+    var $t13: int;
+    var $t14: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
+    var $t15: int;
+    var $t16: int;
     var $t0: $signer;
     var $t1: int;
     var $t2: int;
@@ -2105,78 +2200,146 @@ procedure {:inline 1} $eeee_MoveCoin_transfer'$eeee_OddCoin_OddCoin'(_$t0: $sign
     $t3 := _$t3;
 
     // bytecode translation starts here
-    // trace_local[from]($t0) at ./sources/MoveCoin.move:44:5+1
-    assume {:print "$at(20,1724,1725)"} true;
+    // assume Identical($t6, signer::$address_of($t0)) at ./sources/MoveCoin.move:53:9+41
+    assume {:print "$at(20,2100,2141)"} true;
+    assume ($t6 == $1_signer_$address_of($t0));
+
+    // assume Identical($t7, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t6)))) at ./sources/MoveCoin.move:55:9+67
+    assume {:print "$at(20,2151,2218)"} true;
+    assume ($t7 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t6))));
+
+    // assume Identical($t8, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t1)))) at ./sources/MoveCoin.move:56:9+58
+    assume {:print "$at(20,2227,2285)"} true;
+    assume ($t8 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t1))));
+
+    // trace_local[from]($t0) at ./sources/MoveCoin.move:45:5+1
+    assume {:print "$at(20,1755,1756)"} true;
     assume {:print "$track_local(1,4,0):", $t0} $t0 == $t0;
 
-    // trace_local[to]($t1) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[to]($t1) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,1):", $t1} $t1 == $t1;
 
-    // trace_local[amount]($t2) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[amount]($t2) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,2):", $t2} $t2 == $t2;
 
-    // trace_local[_witness]($t3) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[_witness]($t3) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,3):", $t3} $t3 == $t3;
 
-    // $t5 := signer::address_of($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:45:40+24
-    assume {:print "$at(20,1879,1903)"} true;
-    call $t5 := $1_signer_address_of($t0);
+    // $t9 := signer::address_of($t0) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:46:25+24
+    assume {:print "$at(20,1895,1919)"} true;
+    call $t9 := $1_signer_address_of($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,1879,1903)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
+        assume {:print "$at(20,1895,1919)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
     }
 
-    // $t7 := MoveCoin::withdraw<#0>($t5, $t2) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:45:21+52
-    call $t7 := $eeee_MoveCoin_withdraw'$eeee_OddCoin_OddCoin'($t5, $t2);
-    if ($abort_flag) {
-        assume {:print "$at(20,1860,1912)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
-    }
+    // trace_local[from_addr]($t9) at ./sources/MoveCoin.move:46:13+9
+    assume {:print "$track_local(1,4,5):", $t9} $t9 == $t9;
 
-    // trace_local[check]($t7) at ./sources/MoveCoin.move:45:13+5
-    assume {:print "$track_local(1,4,4):", $t7} $t7 == $t7;
+    // $t11 := !=($t9, $t1) at ./sources/MoveCoin.move:47:27+2
+    assume {:print "$at(20,1947,1949)"} true;
+    $t11 := !$IsEqual'address'($t9, $t1);
 
-    // MoveCoin::deposit<#0>($t1, $t7) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:46:9+28
-    assume {:print "$at(20,1922,1950)"} true;
-    call $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'($t1, $t7);
-    if ($abort_flag) {
-        assume {:print "$at(20,1922,1950)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
-    }
+    // if ($t11) goto L0 else goto L1 at ./sources/MoveCoin.move:47:9+37
+    if ($t11) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
+    // label L1 at ./sources/MoveCoin.move:47:34+11
 L1:
 
-    // return () at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
-    return;
+    // $t12 := 4 at ./sources/MoveCoin.move:47:34+11
+    assume {:print "$at(20,1954,1965)"} true;
+    $t12 := 4;
+    assume $IsValid'u64'($t12);
 
-    // label L2 at ./sources/MoveCoin.move:47:5+1
+    // trace_abort($t12) at ./sources/MoveCoin.move:47:9+37
+    assume {:print "$at(20,1929,1966)"} true;
+    assume {:print "$track_abort(1,4):", $t12} $t12 == $t12;
+
+    // $t10 := move($t12) at ./sources/MoveCoin.move:47:9+37
+    $t10 := $t12;
+
+    // goto L3 at ./sources/MoveCoin.move:47:9+37
+    goto L3;
+
+    // label L0 at ./sources/MoveCoin.move:48:40+9
+    assume {:print "$at(20,2007,2016)"} true;
+L0:
+
+    // assume Identical($t13, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t9)))) at ./sources/MoveCoin.move:73:9+57
+    assume {:print "$at(20,2976,3033)"} true;
+    assume ($t13 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t9))));
+
+    // $t14 := MoveCoin::withdraw<#0>($t9, $t2) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:48:21+37
+    assume {:print "$at(20,1988,2025)"} true;
+    call $t14 := $eeee_MoveCoin_withdraw'$eeee_OddCoin_OddCoin'($t9, $t2);
+    if ($abort_flag) {
+        assume {:print "$at(20,1988,2025)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
+    }
+
+    // trace_local[check]($t14) at ./sources/MoveCoin.move:48:13+5
+    assume {:print "$track_local(1,4,4):", $t14} $t14 == $t14;
+
+    // assume Identical($t15, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t1)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t15 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t1))));
+
+    // assume Identical($t16, select MoveCoin::Coin.value($t14)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t16 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t14));
+
+    // MoveCoin::deposit<#0>($t1, $t14) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:49:9+28
+    assume {:print "$at(20,2035,2063)"} true;
+    call $eeee_MoveCoin_deposit'$eeee_OddCoin_OddCoin'($t1, $t14);
+    if ($abort_flag) {
+        assume {:print "$at(20,2035,2063)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
+    }
+
+    // label L2 at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
 L2:
 
-    // abort($t6) at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
-    $abort_code := $t6;
+    // return () at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
+    return;
+
+    // label L3 at ./sources/MoveCoin.move:50:5+1
+L3:
+
+    // abort($t10) at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
+    $abort_code := $t10;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::transfer [verification] at ./sources/MoveCoin.move:44:5+233
+// fun MoveCoin::transfer [verification] at ./sources/MoveCoin.move:45:5+315
 procedure {:timeLimit 40} $eeee_MoveCoin_transfer$verify(_$t0: $signer, _$t1: int, _$t2: int, _$t3: #0) returns ()
 {
     // declare local variables
     var $t4: $eeee_MoveCoin_Coin'#0';
     var $t5: int;
     var $t6: int;
-    var $t7: $eeee_MoveCoin_Coin'#0';
+    var $t7: int;
+    var $t8: int;
+    var $t9: int;
+    var $t10: int;
+    var $t11: bool;
+    var $t12: int;
+    var $t13: int;
+    var $t14: $eeee_MoveCoin_Coin'#0';
+    var $t15: int;
+    var $t16: int;
+    var $t17: int;
+    var $t18: int;
     var $t0: $signer;
     var $t1: int;
     var $t2: int;
@@ -2195,87 +2358,163 @@ procedure {:timeLimit 40} $eeee_MoveCoin_transfer$verify(_$t0: $signer, _$t1: in
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:44:5+1
-    assume {:print "$at(20,1724,1725)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:45:5+1
+    assume {:print "$at(20,1755,1756)"} true;
     assume $IsValid'signer'($t0) && $1_signer_is_txn_signer($t0) && $1_signer_is_txn_signer_addr($addr#$signer($t0));
 
-    // assume WellFormed($t1) at ./sources/MoveCoin.move:44:5+1
+    // assume WellFormed($t1) at ./sources/MoveCoin.move:45:5+1
     assume $IsValid'address'($t1);
 
-    // assume WellFormed($t2) at ./sources/MoveCoin.move:44:5+1
+    // assume WellFormed($t2) at ./sources/MoveCoin.move:45:5+1
     assume $IsValid'u64'($t2);
 
-    // assume WellFormed($t3) at ./sources/MoveCoin.move:44:5+1
+    // assume WellFormed($t3) at ./sources/MoveCoin.move:45:5+1
     assume $IsValid'#0'($t3);
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:44:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:45:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // trace_local[from]($t0) at ./sources/MoveCoin.move:44:5+1
+    // assume Identical($t6, signer::$address_of($t0)) at ./sources/MoveCoin.move:53:9+41
+    assume {:print "$at(20,2100,2141)"} true;
+    assume ($t6 == $1_signer_$address_of($t0));
+
+    // assume Identical($t7, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t6)))) at ./sources/MoveCoin.move:55:9+67
+    assume {:print "$at(20,2151,2218)"} true;
+    assume ($t7 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t6))));
+
+    // assume Identical($t8, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t1)))) at ./sources/MoveCoin.move:56:9+58
+    assume {:print "$at(20,2227,2285)"} true;
+    assume ($t8 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t1))));
+
+    // trace_local[from]($t0) at ./sources/MoveCoin.move:45:5+1
+    assume {:print "$at(20,1755,1756)"} true;
     assume {:print "$track_local(1,4,0):", $t0} $t0 == $t0;
 
-    // trace_local[to]($t1) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[to]($t1) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,1):", $t1} $t1 == $t1;
 
-    // trace_local[amount]($t2) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[amount]($t2) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,2):", $t2} $t2 == $t2;
 
-    // trace_local[_witness]($t3) at ./sources/MoveCoin.move:44:5+1
+    // trace_local[_witness]($t3) at ./sources/MoveCoin.move:45:5+1
     assume {:print "$track_local(1,4,3):", $t3} $t3 == $t3;
 
-    // $t5 := signer::address_of($t0) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:45:40+24
-    assume {:print "$at(20,1879,1903)"} true;
-    call $t5 := $1_signer_address_of($t0);
+    // $t9 := signer::address_of($t0) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:46:25+24
+    assume {:print "$at(20,1895,1919)"} true;
+    call $t9 := $1_signer_address_of($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,1879,1903)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
+        assume {:print "$at(20,1895,1919)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
     }
 
-    // $t7 := MoveCoin::withdraw<#0>($t5, $t2) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:45:21+52
-    call $t7 := $eeee_MoveCoin_withdraw'#0'($t5, $t2);
-    if ($abort_flag) {
-        assume {:print "$at(20,1860,1912)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
-    }
+    // trace_local[from_addr]($t9) at ./sources/MoveCoin.move:46:13+9
+    assume {:print "$track_local(1,4,5):", $t9} $t9 == $t9;
 
-    // trace_local[check]($t7) at ./sources/MoveCoin.move:45:13+5
-    assume {:print "$track_local(1,4,4):", $t7} $t7 == $t7;
+    // $t11 := !=($t9, $t1) at ./sources/MoveCoin.move:47:27+2
+    assume {:print "$at(20,1947,1949)"} true;
+    $t11 := !$IsEqual'address'($t9, $t1);
 
-    // MoveCoin::deposit<#0>($t1, $t7) on_abort goto L2 with $t6 at ./sources/MoveCoin.move:46:9+28
-    assume {:print "$at(20,1922,1950)"} true;
-    call $eeee_MoveCoin_deposit'#0'($t1, $t7);
-    if ($abort_flag) {
-        assume {:print "$at(20,1922,1950)"} true;
-        $t6 := $abort_code;
-        assume {:print "$track_abort(1,4):", $t6} $t6 == $t6;
-        goto L2;
-    }
+    // if ($t11) goto L0 else goto L1 at ./sources/MoveCoin.move:47:9+37
+    if ($t11) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
+    // label L1 at ./sources/MoveCoin.move:47:34+11
 L1:
 
-    // return () at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
-    return;
+    // $t12 := 4 at ./sources/MoveCoin.move:47:34+11
+    assume {:print "$at(20,1954,1965)"} true;
+    $t12 := 4;
+    assume $IsValid'u64'($t12);
 
-    // label L2 at ./sources/MoveCoin.move:47:5+1
+    // trace_abort($t12) at ./sources/MoveCoin.move:47:9+37
+    assume {:print "$at(20,1929,1966)"} true;
+    assume {:print "$track_abort(1,4):", $t12} $t12 == $t12;
+
+    // $t10 := move($t12) at ./sources/MoveCoin.move:47:9+37
+    $t10 := $t12;
+
+    // goto L3 at ./sources/MoveCoin.move:47:9+37
+    goto L3;
+
+    // label L0 at ./sources/MoveCoin.move:48:40+9
+    assume {:print "$at(20,2007,2016)"} true;
+L0:
+
+    // assume Identical($t13, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t9)))) at ./sources/MoveCoin.move:73:9+57
+    assume {:print "$at(20,2976,3033)"} true;
+    assume ($t13 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t9))));
+
+    // $t14 := MoveCoin::withdraw<#0>($t9, $t2) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:48:21+37
+    assume {:print "$at(20,1988,2025)"} true;
+    call $t14 := $eeee_MoveCoin_withdraw'#0'($t9, $t2);
+    if ($abort_flag) {
+        assume {:print "$at(20,1988,2025)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
+    }
+
+    // trace_local[check]($t14) at ./sources/MoveCoin.move:48:13+5
+    assume {:print "$track_local(1,4,4):", $t14} $t14 == $t14;
+
+    // assume Identical($t15, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t1)))) at ./sources/MoveCoin.move:91:9+57
+    assume {:print "$at(20,3645,3702)"} true;
+    assume ($t15 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t1))));
+
+    // assume Identical($t16, select MoveCoin::Coin.value($t14)) at ./sources/MoveCoin.move:92:9+30
+    assume {:print "$at(20,3711,3741)"} true;
+    assume ($t16 == $value#$eeee_MoveCoin_Coin'#0'($t14));
+
+    // MoveCoin::deposit<#0>($t1, $t14) on_abort goto L3 with $t10 at ./sources/MoveCoin.move:49:9+28
+    assume {:print "$at(20,2035,2063)"} true;
+    call $eeee_MoveCoin_deposit'#0'($t1, $t14);
+    if ($abort_flag) {
+        assume {:print "$at(20,2035,2063)"} true;
+        $t10 := $abort_code;
+        assume {:print "$track_abort(1,4):", $t10} $t10 == $t10;
+        goto L3;
+    }
+
+    // label L2 at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
 L2:
 
-    // abort($t6) at ./sources/MoveCoin.move:47:5+1
-    assume {:print "$at(20,1956,1957)"} true;
-    $abort_code := $t6;
+    // assume Identical($t17, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t6)))) at ./sources/MoveCoin.move:57:9+77
+    assume {:print "$at(20,2294,2371)"} true;
+    assume ($t17 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t6))));
+
+    // assume Identical($t18, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t1)))) at ./sources/MoveCoin.move:58:9+68
+    assume {:print "$at(20,2380,2448)"} true;
+    assume ($t18 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t1))));
+
+    // assert Eq<u64>($t17, Sub($t7, $t2)) at ./sources/MoveCoin.move:60:9+51
+    assume {:print "$at(20,2458,2509)"} true;
+    assert {:msg "assert_failed(20,2458,2509): post-condition does not hold"}
+      $IsEqual'u64'($t17, ($t7 - $t2));
+
+    // assert Eq<u64>($t18, Add($t8, $t2)) at ./sources/MoveCoin.move:61:9+47
+    assume {:print "$at(20,2518,2565)"} true;
+    assert {:msg "assert_failed(20,2518,2565): post-condition does not hold"}
+      $IsEqual'u64'($t18, ($t8 + $t2));
+
+    // return () at ./sources/MoveCoin.move:61:9+47
+    return;
+
+    // label L3 at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
+L3:
+
+    // abort($t10) at ./sources/MoveCoin.move:50:5+1
+    assume {:print "$at(20,2069,2070)"} true;
+    $abort_code := $t10;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::withdraw<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:49:5+369
+// fun MoveCoin::withdraw<OddCoin::OddCoin> [baseline] at ./sources/MoveCoin.move:64:5+369
 procedure {:inline 1} $eeee_MoveCoin_withdraw'$eeee_OddCoin_OddCoin'(_$t0: int, _$t1: int) returns ($ret0: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin')
 {
     // declare local variables
@@ -2283,13 +2522,14 @@ procedure {:inline 1} $eeee_MoveCoin_withdraw'$eeee_OddCoin_OddCoin'(_$t0: int, 
     var $t3: $Mutation (int);
     var $t4: int;
     var $t5: int;
-    var $t6: bool;
-    var $t7: int;
-    var $t8: $Mutation ($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin');
-    var $t9: $Mutation ($eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin');
-    var $t10: $Mutation (int);
-    var $t11: int;
-    var $t12: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
+    var $t6: int;
+    var $t7: bool;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
     var $t0: int;
     var $t1: int;
     var $temp_0'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'': $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin';
@@ -2299,130 +2539,134 @@ procedure {:inline 1} $eeee_MoveCoin_withdraw'$eeee_OddCoin_OddCoin'(_$t0: int, 
     $t1 := _$t1;
 
     // bytecode translation starts here
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:49:5+1
-    assume {:print "$at(20,1963,1964)"} true;
+    // assume Identical($t4, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:73:9+57
+    assume {:print "$at(20,2976,3033)"} true;
+    assume ($t4 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0))));
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:64:5+1
+    assume {:print "$at(20,2577,2578)"} true;
     assume {:print "$track_local(1,5,0):", $t0} $t0 == $t0;
 
-    // trace_local[amount]($t1) at ./sources/MoveCoin.move:49:5+1
+    // trace_local[amount]($t1) at ./sources/MoveCoin.move:64:5+1
     assume {:print "$track_local(1,5,1):", $t1} $t1 == $t1;
 
-    // $t4 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:50:23+26
-    assume {:print "$at(20,2072,2098)"} true;
-    call $t4 := $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'($t0);
+    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:65:23+26
+    assume {:print "$at(20,2686,2712)"} true;
+    call $t5 := $eeee_MoveCoin_balance_of'$eeee_OddCoin_OddCoin'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2072,2098)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2686,2712)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // trace_local[balance]($t4) at ./sources/MoveCoin.move:50:13+7
-    assume {:print "$track_local(1,5,2):", $t4} $t4 == $t4;
+    // trace_local[balance]($t5) at ./sources/MoveCoin.move:65:13+7
+    assume {:print "$track_local(1,5,2):", $t5} $t5 == $t5;
 
-    // $t6 := >=($t4, $t1) at ./sources/MoveCoin.move:51:25+2
-    assume {:print "$at(20,2124,2126)"} true;
-    call $t6 := $Ge($t4, $t1);
+    // $t7 := >=($t5, $t1) at ./sources/MoveCoin.move:66:25+2
+    assume {:print "$at(20,2738,2740)"} true;
+    call $t7 := $Ge($t5, $t1);
 
-    // if ($t6) goto L0 else goto L1 at ./sources/MoveCoin.move:51:9+49
-    if ($t6) { goto L0; } else { goto L1; }
+    // if ($t7) goto L0 else goto L1 at ./sources/MoveCoin.move:66:9+49
+    if ($t7) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:51:36+21
+    // label L1 at ./sources/MoveCoin.move:66:36+21
 L1:
 
-    // $t7 := 1 at ./sources/MoveCoin.move:51:36+21
-    assume {:print "$at(20,2135,2156)"} true;
-    $t7 := 1;
-    assume $IsValid'u64'($t7);
+    // $t8 := 1 at ./sources/MoveCoin.move:66:36+21
+    assume {:print "$at(20,2749,2770)"} true;
+    $t8 := 1;
+    assume $IsValid'u64'($t8);
 
-    // trace_abort($t7) at ./sources/MoveCoin.move:51:9+49
-    assume {:print "$at(20,2108,2157)"} true;
-    assume {:print "$track_abort(1,5):", $t7} $t7 == $t7;
+    // trace_abort($t8) at ./sources/MoveCoin.move:66:9+49
+    assume {:print "$at(20,2722,2771)"} true;
+    assume {:print "$track_abort(1,5):", $t8} $t8 == $t8;
 
-    // $t5 := move($t7) at ./sources/MoveCoin.move:51:9+49
-    $t5 := $t7;
+    // $t6 := move($t8) at ./sources/MoveCoin.move:66:9+49
+    $t6 := $t8;
 
-    // goto L3 at ./sources/MoveCoin.move:51:9+49
+    // goto L3 at ./sources/MoveCoin.move:66:9+49
     goto L3;
 
-    // label L0 at ./sources/MoveCoin.move:52:69+4
-    assume {:print "$at(20,2227,2231)"} true;
+    // label L0 at ./sources/MoveCoin.move:67:69+4
+    assume {:print "$at(20,2841,2845)"} true;
 L0:
 
-    // $t8 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:52:32+17
-    assume {:print "$at(20,2190,2207)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:67:32+17
+    assume {:print "$at(20,2804,2821)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t8 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2190,2207)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2804,2821)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // $t9 := borrow_field<MoveCoin::Balance<#0>>.coin($t8) at ./sources/MoveCoin.move:52:32+47
-    $t9 := $ChildMutation($t8, 0, $coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($Dereference($t8)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:67:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($Dereference($t9)));
 
-    // $t10 := borrow_field<MoveCoin::Coin<#0>>.value($t9) at ./sources/MoveCoin.move:52:27+58
-    $t10 := $ChildMutation($t9, 0, $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($Dereference($t9)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:67:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t10) at ./sources/MoveCoin.move:52:13+11
-    $temp_0'u64' := $Dereference($t10);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:67:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,5,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t11 := -($t4, $t1) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:53:32+1
-    assume {:print "$at(20,2276,2277)"} true;
-    call $t11 := $Sub($t4, $t1);
+    // $t12 := -($t5, $t1) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:68:32+1
+    assume {:print "$at(20,2890,2891)"} true;
+    call $t12 := $Sub($t5, $t1);
     if ($abort_flag) {
-        assume {:print "$at(20,2276,2277)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2890,2891)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // write_ref($t10, $t11) at ./sources/MoveCoin.move:53:9+31
-    $t10 := $UpdateMutation($t10, $t11);
+    // write_ref($t11, $t12) at ./sources/MoveCoin.move:68:9+31
+    $t11 := $UpdateMutation($t11, $t12);
 
-    // write_back[Reference($t9).value (u64)]($t10) at ./sources/MoveCoin.move:53:9+31
-    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''_value($Dereference($t9), $Dereference($t10)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:68:9+31
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t8).coin (MoveCoin::Coin<#0>)]($t9) at ./sources/MoveCoin.move:53:9+31
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''_coin($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:68:9+31
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t8) at ./sources/MoveCoin.move:53:9+31
-    $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $GlobalLocationAddress($t8),
-        $Dereference($t8));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:68:9+31
+    $eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // $t12 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$at(20,2294,2326)"} true;
-    $t12 := $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1);
+    // $t13 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$at(20,2908,2940)"} true;
+    $t13 := $eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($t1);
 
-    // trace_return[0]($t12) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$track_return(1,5,0):", $t12} $t12 == $t12;
+    // trace_return[0]($t13) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$track_return(1,5,0):", $t13} $t13 == $t13;
 
-    // label L2 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
+    // label L2 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
 L2:
 
-    // return $t12 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $ret0 := $t12;
+    // return $t13 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
+    $ret0 := $t13;
     return;
 
-    // label L3 at ./sources/MoveCoin.move:55:5+1
+    // label L3 at ./sources/MoveCoin.move:70:5+1
 L3:
 
-    // abort($t5) at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $abort_code := $t5;
+    // abort($t6) at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
+    $abort_code := $t6;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::withdraw<#0> [baseline] at ./sources/MoveCoin.move:49:5+369
+// fun MoveCoin::withdraw<#0> [baseline] at ./sources/MoveCoin.move:64:5+369
 procedure {:inline 1} $eeee_MoveCoin_withdraw'#0'(_$t0: int, _$t1: int) returns ($ret0: $eeee_MoveCoin_Coin'#0')
 {
     // declare local variables
@@ -2430,13 +2674,14 @@ procedure {:inline 1} $eeee_MoveCoin_withdraw'#0'(_$t0: int, _$t1: int) returns 
     var $t3: $Mutation (int);
     var $t4: int;
     var $t5: int;
-    var $t6: bool;
-    var $t7: int;
-    var $t8: $Mutation ($eeee_MoveCoin_Balance'#0');
-    var $t9: $Mutation ($eeee_MoveCoin_Coin'#0');
-    var $t10: $Mutation (int);
-    var $t11: int;
-    var $t12: $eeee_MoveCoin_Coin'#0';
+    var $t6: int;
+    var $t7: bool;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'#0');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'#0');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: $eeee_MoveCoin_Coin'#0';
     var $t0: int;
     var $t1: int;
     var $temp_0'$eeee_MoveCoin_Coin'#0'': $eeee_MoveCoin_Coin'#0';
@@ -2446,130 +2691,134 @@ procedure {:inline 1} $eeee_MoveCoin_withdraw'#0'(_$t0: int, _$t1: int) returns 
     $t1 := _$t1;
 
     // bytecode translation starts here
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:49:5+1
-    assume {:print "$at(20,1963,1964)"} true;
+    // assume Identical($t4, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:73:9+57
+    assume {:print "$at(20,2976,3033)"} true;
+    assume ($t4 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:64:5+1
+    assume {:print "$at(20,2577,2578)"} true;
     assume {:print "$track_local(1,5,0):", $t0} $t0 == $t0;
 
-    // trace_local[amount]($t1) at ./sources/MoveCoin.move:49:5+1
+    // trace_local[amount]($t1) at ./sources/MoveCoin.move:64:5+1
     assume {:print "$track_local(1,5,1):", $t1} $t1 == $t1;
 
-    // $t4 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:50:23+26
-    assume {:print "$at(20,2072,2098)"} true;
-    call $t4 := $eeee_MoveCoin_balance_of'#0'($t0);
+    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:65:23+26
+    assume {:print "$at(20,2686,2712)"} true;
+    call $t5 := $eeee_MoveCoin_balance_of'#0'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2072,2098)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2686,2712)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // trace_local[balance]($t4) at ./sources/MoveCoin.move:50:13+7
-    assume {:print "$track_local(1,5,2):", $t4} $t4 == $t4;
+    // trace_local[balance]($t5) at ./sources/MoveCoin.move:65:13+7
+    assume {:print "$track_local(1,5,2):", $t5} $t5 == $t5;
 
-    // $t6 := >=($t4, $t1) at ./sources/MoveCoin.move:51:25+2
-    assume {:print "$at(20,2124,2126)"} true;
-    call $t6 := $Ge($t4, $t1);
+    // $t7 := >=($t5, $t1) at ./sources/MoveCoin.move:66:25+2
+    assume {:print "$at(20,2738,2740)"} true;
+    call $t7 := $Ge($t5, $t1);
 
-    // if ($t6) goto L0 else goto L1 at ./sources/MoveCoin.move:51:9+49
-    if ($t6) { goto L0; } else { goto L1; }
+    // if ($t7) goto L0 else goto L1 at ./sources/MoveCoin.move:66:9+49
+    if ($t7) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:51:36+21
+    // label L1 at ./sources/MoveCoin.move:66:36+21
 L1:
 
-    // $t7 := 1 at ./sources/MoveCoin.move:51:36+21
-    assume {:print "$at(20,2135,2156)"} true;
-    $t7 := 1;
-    assume $IsValid'u64'($t7);
+    // $t8 := 1 at ./sources/MoveCoin.move:66:36+21
+    assume {:print "$at(20,2749,2770)"} true;
+    $t8 := 1;
+    assume $IsValid'u64'($t8);
 
-    // trace_abort($t7) at ./sources/MoveCoin.move:51:9+49
-    assume {:print "$at(20,2108,2157)"} true;
-    assume {:print "$track_abort(1,5):", $t7} $t7 == $t7;
+    // trace_abort($t8) at ./sources/MoveCoin.move:66:9+49
+    assume {:print "$at(20,2722,2771)"} true;
+    assume {:print "$track_abort(1,5):", $t8} $t8 == $t8;
 
-    // $t5 := move($t7) at ./sources/MoveCoin.move:51:9+49
-    $t5 := $t7;
+    // $t6 := move($t8) at ./sources/MoveCoin.move:66:9+49
+    $t6 := $t8;
 
-    // goto L3 at ./sources/MoveCoin.move:51:9+49
+    // goto L3 at ./sources/MoveCoin.move:66:9+49
     goto L3;
 
-    // label L0 at ./sources/MoveCoin.move:52:69+4
-    assume {:print "$at(20,2227,2231)"} true;
+    // label L0 at ./sources/MoveCoin.move:67:69+4
+    assume {:print "$at(20,2841,2845)"} true;
 L0:
 
-    // $t8 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:52:32+17
-    assume {:print "$at(20,2190,2207)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:67:32+17
+    assume {:print "$at(20,2804,2821)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t8 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2190,2207)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2804,2821)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // $t9 := borrow_field<MoveCoin::Balance<#0>>.coin($t8) at ./sources/MoveCoin.move:52:32+47
-    $t9 := $ChildMutation($t8, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t8)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:67:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t9)));
 
-    // $t10 := borrow_field<MoveCoin::Coin<#0>>.value($t9) at ./sources/MoveCoin.move:52:27+58
-    $t10 := $ChildMutation($t9, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t9)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:67:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t10) at ./sources/MoveCoin.move:52:13+11
-    $temp_0'u64' := $Dereference($t10);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:67:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,5,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t11 := -($t4, $t1) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:53:32+1
-    assume {:print "$at(20,2276,2277)"} true;
-    call $t11 := $Sub($t4, $t1);
+    // $t12 := -($t5, $t1) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:68:32+1
+    assume {:print "$at(20,2890,2891)"} true;
+    call $t12 := $Sub($t5, $t1);
     if ($abort_flag) {
-        assume {:print "$at(20,2276,2277)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2890,2891)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // write_ref($t10, $t11) at ./sources/MoveCoin.move:53:9+31
-    $t10 := $UpdateMutation($t10, $t11);
+    // write_ref($t11, $t12) at ./sources/MoveCoin.move:68:9+31
+    $t11 := $UpdateMutation($t11, $t12);
 
-    // write_back[Reference($t9).value (u64)]($t10) at ./sources/MoveCoin.move:53:9+31
-    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t9), $Dereference($t10)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:68:9+31
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t8).coin (MoveCoin::Coin<#0>)]($t9) at ./sources/MoveCoin.move:53:9+31
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:68:9+31
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t8) at ./sources/MoveCoin.move:53:9+31
-    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t8),
-        $Dereference($t8));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:68:9+31
+    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // $t12 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$at(20,2294,2326)"} true;
-    $t12 := $eeee_MoveCoin_Coin'#0'($t1);
+    // $t13 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$at(20,2908,2940)"} true;
+    $t13 := $eeee_MoveCoin_Coin'#0'($t1);
 
-    // trace_return[0]($t12) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$track_return(1,5,0):", $t12} $t12 == $t12;
+    // trace_return[0]($t13) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$track_return(1,5,0):", $t13} $t13 == $t13;
 
-    // label L2 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
+    // label L2 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
 L2:
 
-    // return $t12 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $ret0 := $t12;
+    // return $t13 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
+    $ret0 := $t13;
     return;
 
-    // label L3 at ./sources/MoveCoin.move:55:5+1
+    // label L3 at ./sources/MoveCoin.move:70:5+1
 L3:
 
-    // abort($t5) at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $abort_code := $t5;
+    // abort($t6) at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
+    $abort_code := $t6;
     $abort_flag := true;
     return;
 
 }
 
-// fun MoveCoin::withdraw [verification] at ./sources/MoveCoin.move:49:5+369
+// fun MoveCoin::withdraw [verification] at ./sources/MoveCoin.move:64:5+369
 procedure {:timeLimit 40} $eeee_MoveCoin_withdraw$verify(_$t0: int, _$t1: int) returns ($ret0: $eeee_MoveCoin_Coin'#0')
 {
     // declare local variables
@@ -2577,18 +2826,21 @@ procedure {:timeLimit 40} $eeee_MoveCoin_withdraw$verify(_$t0: int, _$t1: int) r
     var $t3: $Mutation (int);
     var $t4: int;
     var $t5: int;
-    var $t6: bool;
-    var $t7: int;
-    var $t8: $Mutation ($eeee_MoveCoin_Balance'#0');
-    var $t9: $Mutation ($eeee_MoveCoin_Coin'#0');
-    var $t10: $Mutation (int);
-    var $t11: int;
-    var $t12: $eeee_MoveCoin_Coin'#0';
+    var $t6: int;
+    var $t7: bool;
+    var $t8: int;
+    var $t9: $Mutation ($eeee_MoveCoin_Balance'#0');
+    var $t10: $Mutation ($eeee_MoveCoin_Coin'#0');
+    var $t11: $Mutation (int);
+    var $t12: int;
+    var $t13: $eeee_MoveCoin_Coin'#0';
+    var $t14: int;
     var $t0: int;
     var $t1: int;
     var $temp_0'$eeee_MoveCoin_Coin'#0'': $eeee_MoveCoin_Coin'#0';
     var $temp_0'address': int;
     var $temp_0'u64': int;
+    var $eeee_MoveCoin_Balance'#0'_$memory#2: $Memory $eeee_MoveCoin_Balance'#0';
     $t0 := _$t0;
     $t1 := _$t1;
 
@@ -2596,134 +2848,170 @@ procedure {:timeLimit 40} $eeee_MoveCoin_withdraw$verify(_$t0: int, _$t1: int) r
     call $InitVerification();
 
     // bytecode translation starts here
-    // assume WellFormed($t0) at ./sources/MoveCoin.move:49:5+1
-    assume {:print "$at(20,1963,1964)"} true;
+    // assume WellFormed($t0) at ./sources/MoveCoin.move:64:5+1
+    assume {:print "$at(20,2577,2578)"} true;
     assume $IsValid'address'($t0);
 
-    // assume WellFormed($t1) at ./sources/MoveCoin.move:49:5+1
+    // assume WellFormed($t1) at ./sources/MoveCoin.move:64:5+1
     assume $IsValid'u64'($t1);
 
-    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:49:5+1
+    // assume forall $rsc: ResourceDomain<MoveCoin::Balance<#0>>(): WellFormed($rsc) at ./sources/MoveCoin.move:64:5+1
     assume (forall $a_0: int :: {$ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0)}(var $rsc := $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $a_0);
     ($IsValid'$eeee_MoveCoin_Balance'#0''($rsc))));
 
-    // trace_local[addr]($t0) at ./sources/MoveCoin.move:49:5+1
+    // assume Identical($t4, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:73:9+57
+    assume {:print "$at(20,2976,3033)"} true;
+    assume ($t4 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // @2 := save_mem(MoveCoin::Balance<#0>) at ./sources/MoveCoin.move:64:5+1
+    assume {:print "$at(20,2577,2578)"} true;
+    $eeee_MoveCoin_Balance'#0'_$memory#2 := $eeee_MoveCoin_Balance'#0'_$memory;
+
+    // trace_local[addr]($t0) at ./sources/MoveCoin.move:64:5+1
     assume {:print "$track_local(1,5,0):", $t0} $t0 == $t0;
 
-    // trace_local[amount]($t1) at ./sources/MoveCoin.move:49:5+1
+    // trace_local[amount]($t1) at ./sources/MoveCoin.move:64:5+1
     assume {:print "$track_local(1,5,1):", $t1} $t1 == $t1;
 
-    // $t4 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:50:23+26
-    assume {:print "$at(20,2072,2098)"} true;
-    call $t4 := $eeee_MoveCoin_balance_of'#0'($t0);
+    // $t5 := MoveCoin::balance_of<#0>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:65:23+26
+    assume {:print "$at(20,2686,2712)"} true;
+    call $t5 := $eeee_MoveCoin_balance_of'#0'($t0);
     if ($abort_flag) {
-        assume {:print "$at(20,2072,2098)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2686,2712)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // trace_local[balance]($t4) at ./sources/MoveCoin.move:50:13+7
-    assume {:print "$track_local(1,5,2):", $t4} $t4 == $t4;
+    // trace_local[balance]($t5) at ./sources/MoveCoin.move:65:13+7
+    assume {:print "$track_local(1,5,2):", $t5} $t5 == $t5;
 
-    // $t6 := >=($t4, $t1) at ./sources/MoveCoin.move:51:25+2
-    assume {:print "$at(20,2124,2126)"} true;
-    call $t6 := $Ge($t4, $t1);
+    // $t7 := >=($t5, $t1) at ./sources/MoveCoin.move:66:25+2
+    assume {:print "$at(20,2738,2740)"} true;
+    call $t7 := $Ge($t5, $t1);
 
-    // if ($t6) goto L0 else goto L1 at ./sources/MoveCoin.move:51:9+49
-    if ($t6) { goto L0; } else { goto L1; }
+    // if ($t7) goto L0 else goto L1 at ./sources/MoveCoin.move:66:9+49
+    if ($t7) { goto L0; } else { goto L1; }
 
-    // label L1 at ./sources/MoveCoin.move:51:36+21
+    // label L1 at ./sources/MoveCoin.move:66:36+21
 L1:
 
-    // $t7 := 1 at ./sources/MoveCoin.move:51:36+21
-    assume {:print "$at(20,2135,2156)"} true;
-    $t7 := 1;
-    assume $IsValid'u64'($t7);
+    // $t8 := 1 at ./sources/MoveCoin.move:66:36+21
+    assume {:print "$at(20,2749,2770)"} true;
+    $t8 := 1;
+    assume $IsValid'u64'($t8);
 
-    // trace_abort($t7) at ./sources/MoveCoin.move:51:9+49
-    assume {:print "$at(20,2108,2157)"} true;
-    assume {:print "$track_abort(1,5):", $t7} $t7 == $t7;
+    // trace_abort($t8) at ./sources/MoveCoin.move:66:9+49
+    assume {:print "$at(20,2722,2771)"} true;
+    assume {:print "$track_abort(1,5):", $t8} $t8 == $t8;
 
-    // $t5 := move($t7) at ./sources/MoveCoin.move:51:9+49
-    $t5 := $t7;
+    // $t6 := move($t8) at ./sources/MoveCoin.move:66:9+49
+    $t6 := $t8;
 
-    // goto L3 at ./sources/MoveCoin.move:51:9+49
+    // goto L3 at ./sources/MoveCoin.move:66:9+49
     goto L3;
 
-    // label L0 at ./sources/MoveCoin.move:52:69+4
-    assume {:print "$at(20,2227,2231)"} true;
+    // label L0 at ./sources/MoveCoin.move:67:69+4
+    assume {:print "$at(20,2841,2845)"} true;
 L0:
 
-    // $t8 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:52:32+17
-    assume {:print "$at(20,2190,2207)"} true;
+    // $t9 := borrow_global<MoveCoin::Balance<#0>>($t0) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:67:32+17
+    assume {:print "$at(20,2804,2821)"} true;
     if (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory, $t0)) {
         call $ExecFailureAbort();
     } else {
-        $t8 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
+        $t9 := $Mutation($Global($t0), EmptyVec(), $ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0));
     }
     if ($abort_flag) {
-        assume {:print "$at(20,2190,2207)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2804,2821)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // $t9 := borrow_field<MoveCoin::Balance<#0>>.coin($t8) at ./sources/MoveCoin.move:52:32+47
-    $t9 := $ChildMutation($t8, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t8)));
+    // $t10 := borrow_field<MoveCoin::Balance<#0>>.coin($t9) at ./sources/MoveCoin.move:67:32+47
+    $t10 := $ChildMutation($t9, 0, $coin#$eeee_MoveCoin_Balance'#0'($Dereference($t9)));
 
-    // $t10 := borrow_field<MoveCoin::Coin<#0>>.value($t9) at ./sources/MoveCoin.move:52:27+58
-    $t10 := $ChildMutation($t9, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t9)));
+    // $t11 := borrow_field<MoveCoin::Coin<#0>>.value($t10) at ./sources/MoveCoin.move:67:27+58
+    $t11 := $ChildMutation($t10, 0, $value#$eeee_MoveCoin_Coin'#0'($Dereference($t10)));
 
-    // trace_local[balance_ref]($t10) at ./sources/MoveCoin.move:52:13+11
-    $temp_0'u64' := $Dereference($t10);
+    // trace_local[balance_ref]($t11) at ./sources/MoveCoin.move:67:13+11
+    $temp_0'u64' := $Dereference($t11);
     assume {:print "$track_local(1,5,3):", $temp_0'u64'} $temp_0'u64' == $temp_0'u64';
 
-    // $t11 := -($t4, $t1) on_abort goto L3 with $t5 at ./sources/MoveCoin.move:53:32+1
-    assume {:print "$at(20,2276,2277)"} true;
-    call $t11 := $Sub($t4, $t1);
+    // $t12 := -($t5, $t1) on_abort goto L3 with $t6 at ./sources/MoveCoin.move:68:32+1
+    assume {:print "$at(20,2890,2891)"} true;
+    call $t12 := $Sub($t5, $t1);
     if ($abort_flag) {
-        assume {:print "$at(20,2276,2277)"} true;
-        $t5 := $abort_code;
-        assume {:print "$track_abort(1,5):", $t5} $t5 == $t5;
+        assume {:print "$at(20,2890,2891)"} true;
+        $t6 := $abort_code;
+        assume {:print "$track_abort(1,5):", $t6} $t6 == $t6;
         goto L3;
     }
 
-    // write_ref($t10, $t11) at ./sources/MoveCoin.move:53:9+31
-    $t10 := $UpdateMutation($t10, $t11);
+    // write_ref($t11, $t12) at ./sources/MoveCoin.move:68:9+31
+    $t11 := $UpdateMutation($t11, $t12);
 
-    // write_back[Reference($t9).value (u64)]($t10) at ./sources/MoveCoin.move:53:9+31
-    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t9), $Dereference($t10)));
+    // write_back[Reference($t10).value (u64)]($t11) at ./sources/MoveCoin.move:68:9+31
+    $t10 := $UpdateMutation($t10, $Update'$eeee_MoveCoin_Coin'#0''_value($Dereference($t10), $Dereference($t11)));
 
-    // write_back[Reference($t8).coin (MoveCoin::Coin<#0>)]($t9) at ./sources/MoveCoin.move:53:9+31
-    $t8 := $UpdateMutation($t8, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t8), $Dereference($t9)));
+    // write_back[Reference($t9).coin (MoveCoin::Coin<#0>)]($t10) at ./sources/MoveCoin.move:68:9+31
+    $t9 := $UpdateMutation($t9, $Update'$eeee_MoveCoin_Balance'#0''_coin($Dereference($t9), $Dereference($t10)));
 
-    // write_back[MoveCoin::Balance<#0>@]($t8) at ./sources/MoveCoin.move:53:9+31
-    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t8),
-        $Dereference($t8));
+    // write_back[MoveCoin::Balance<#0>@]($t9) at ./sources/MoveCoin.move:68:9+31
+    $eeee_MoveCoin_Balance'#0'_$memory := $ResourceUpdate($eeee_MoveCoin_Balance'#0'_$memory, $GlobalLocationAddress($t9),
+        $Dereference($t9));
 
-    // $t12 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$at(20,2294,2326)"} true;
-    $t12 := $eeee_MoveCoin_Coin'#0'($t1);
+    // $t13 := pack MoveCoin::Coin<#0>($t1) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$at(20,2908,2940)"} true;
+    $t13 := $eeee_MoveCoin_Coin'#0'($t1);
 
-    // trace_return[0]($t12) at ./sources/MoveCoin.move:54:9+32
-    assume {:print "$track_return(1,5,0):", $t12} $t12 == $t12;
+    // trace_return[0]($t13) at ./sources/MoveCoin.move:69:9+32
+    assume {:print "$track_return(1,5,0):", $t13} $t13 == $t13;
 
-    // label L2 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
+    // label L2 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
 L2:
 
-    // return $t12 at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $ret0 := $t12;
+    // assume Identical($t14, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<#0>>($t0)))) at ./sources/MoveCoin.move:78:9+67
+    assume {:print "$at(20,3132,3199)"} true;
+    assume ($t14 == $value#$eeee_MoveCoin_Coin'#0'($coin#$eeee_MoveCoin_Balance'#0'($ResourceValue($eeee_MoveCoin_Balance'#0'_$memory, $t0))));
+
+    // assert Not(Not(exists[@2]<MoveCoin::Balance<#0>>($t0))) at ./sources/MoveCoin.move:75:9+43
+    assume {:print "$at(20,3043,3086)"} true;
+    assert {:msg "assert_failed(20,3043,3086): function does not abort under this condition"}
+      !!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#2, $t0);
+
+    // assert Not(Lt($t4, $t1)) at ./sources/MoveCoin.move:76:9+27
+    assume {:print "$at(20,3095,3122)"} true;
+    assert {:msg "assert_failed(20,3095,3122): function does not abort under this condition"}
+      !($t4 < $t1);
+
+    // assert Eq<MoveCoin::Coin<#0>>($t13, pack MoveCoin::Coin<#0>($t1)) at ./sources/MoveCoin.move:79:9+51
+    assume {:print "$at(20,3208,3259)"} true;
+    assert {:msg "assert_failed(20,3208,3259): post-condition does not hold"}
+      $IsEqual'$eeee_MoveCoin_Coin'#0''($t13, $eeee_MoveCoin_Coin'#0'($t1));
+
+    // assert Eq<u64>($t14, Sub($t4, $t1)) at ./sources/MoveCoin.move:80:9+41
+    assume {:print "$at(20,3268,3309)"} true;
+    assert {:msg "assert_failed(20,3268,3309): post-condition does not hold"}
+      $IsEqual'u64'($t14, ($t4 - $t1));
+
+    // return $t13 at ./sources/MoveCoin.move:80:9+41
+    $ret0 := $t13;
     return;
 
-    // label L3 at ./sources/MoveCoin.move:55:5+1
+    // label L3 at ./sources/MoveCoin.move:70:5+1
+    assume {:print "$at(20,2945,2946)"} true;
 L3:
 
-    // abort($t5) at ./sources/MoveCoin.move:55:5+1
-    assume {:print "$at(20,2331,2332)"} true;
-    $abort_code := $t5;
+    // assert Or(Not(exists[@2]<MoveCoin::Balance<#0>>($t0)), Lt($t4, $t1)) at ./sources/MoveCoin.move:72:5+363
+    assume {:print "$at(20,2952,3315)"} true;
+    assert {:msg "assert_failed(20,2952,3315): abort not covered by any of the `aborts_if` clauses"}
+      (!$ResourceExists($eeee_MoveCoin_Balance'#0'_$memory#2, $t0) || ($t4 < $t1));
+
+    // abort($t6) at ./sources/MoveCoin.move:72:5+363
+    $abort_code := $t6;
     $abort_flag := true;
     return;
 
@@ -2754,6 +3042,9 @@ procedure {:timeLimit 40} $eeee_OddCoin_transfer$verify(_$t0: $signer, _$t1: int
     var $t8: int;
     var $t9: bool;
     var $t10: $eeee_OddCoin_OddCoin;
+    var $t11: int;
+    var $t12: int;
+    var $t13: int;
     var $t0: $signer;
     var $t1: int;
     var $t2: int;
@@ -2845,7 +3136,20 @@ L0:
     // $t10 := pack OddCoin::OddCoin($t9) at ./sources/OddCoin.move:19:55+10
     $t10 := $eeee_OddCoin_OddCoin($t9);
 
+    // assume Identical($t11, signer::$address_of($t0)) at ./sources/MoveCoin.move:53:9+41
+    assume {:print "$at(20,2100,2141)"} true;
+    assume ($t11 == $1_signer_$address_of($t0));
+
+    // assume Identical($t12, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<OddCoin::OddCoin>>($t11)))) at ./sources/MoveCoin.move:55:9+67
+    assume {:print "$at(20,2151,2218)"} true;
+    assume ($t12 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t11))));
+
+    // assume Identical($t13, select MoveCoin::Coin.value(select MoveCoin::Balance.coin(global<MoveCoin::Balance<OddCoin::OddCoin>>($t1)))) at ./sources/MoveCoin.move:56:9+58
+    assume {:print "$at(20,2227,2285)"} true;
+    assume ($t13 == $value#$eeee_MoveCoin_Coin'$eeee_OddCoin_OddCoin'($coin#$eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'($ResourceValue($eeee_MoveCoin_Balance'$eeee_OddCoin_OddCoin'_$memory, $t1))));
+
     // MoveCoin::transfer<OddCoin::OddCoin>($t0, $t1, $t2, $t10) on_abort goto L3 with $t5 at ./sources/OddCoin.move:19:9+57
+    assume {:print "$at(24,598,655)"} true;
     call $eeee_MoveCoin_transfer'$eeee_OddCoin_OddCoin'($t0, $t1, $t2, $t10);
     if ($abort_flag) {
         assume {:print "$at(24,598,655)"} true;
