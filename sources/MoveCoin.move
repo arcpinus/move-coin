@@ -20,7 +20,7 @@ module NamedAddr::MoveCoin {
     public fun publish_balance<CoinType>(account: &signer) {
         let empty_coin = Coin<CoinType> { value: 0 };
         assert!(!exists<Balance<CoinType>>(signer::address_of(account)), EALREADY_HAS_BALANCE);
-        move_to(account, Balance<CoinType> { coin:  empty_coin });
+        move_to(account, Balance<CoinType> { coin: empty_coin });
     }
 
     /// Mint `amount` tokens to `mint_addr`. This method requires a witness with `CoinType` so that the
@@ -34,8 +34,13 @@ module NamedAddr::MoveCoin {
         borrow_global<Balance<CoinType>>(owner).coin.value
     }
 
+    spec balance_of {
+        pragma aborts_if_is_strict;
+        aborts_if !exists<Balance<CoinType>>(owner);
+    }
+
     /// Transfers `amount` of tokens from `from` to `to`. This method requires a witness with `CoinType` so that the
-    /// module that owns `CoinType` can decide the transferring policy.
+    /// module that owns `CoinType` can  decide the transferring policy.
     public fun transfer<CoinType: drop>(from: &signer, to: address, amount: u64, _witness: CoinType) acquires Balance {
         let check = withdraw<CoinType>(signer::address_of(from), amount);
         deposit<CoinType>(to, check);
