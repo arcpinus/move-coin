@@ -6,6 +6,7 @@ module NamedAddr::MoveCoin {
     const ENOT_MODULE_OWNER: u64 = 0;
     const EINSUFFICIENT_BALANCE: u64 = 1;
     const EALREADY_HAS_BALANCE: u64 = 2;
+    const EALREADY_INITIALIZED: u64 = 3;
     const EEQUAL_ADDR: u64 = 4;
 
     struct Coin<phantom CoinType> has store {
@@ -16,12 +17,26 @@ module NamedAddr::MoveCoin {
         coin: Coin<CoinType>
     }
 
-    /// Publish an empty balance resource under `account`'s address. This function must be called before
-    /// minting or transferring to the account.
     public fun publish_balance<CoinType>(account: &signer) {
         let empty_coin = Coin<CoinType> { value: 0 };
         assert!(!exists<Balance<CoinType>>(signer::address_of(account)), EALREADY_HAS_BALANCE);
         move_to(account, Balance<CoinType> { coin: empty_coin });
+    }
+
+    spec publish_balance {
+        include Schema_publish<CoinType> {addr: signer::address_of(account), amount: 0};
+    }
+
+    spec schema Schema_publish<CoinType> {
+        addr: address;
+        amount: u64;
+
+        aborts_if exists<Balance<CoinType>>(addr);
+
+        ensures exists<Balance<CoinType>>(addr);
+        let post balance_post = global<Balance<CoinType>>(addr).coin.value;
+
+        ensures balance_post == amount;
     }
 
     /// Mint `amount` tokens to `mint_addr`. This method requires a witness with `CoinType` so that the
@@ -29,6 +44,10 @@ module NamedAddr::MoveCoin {
     public fun mint<CoinType: drop>(mint_addr: address, amount: u64, _witness: CoinType) acquires Balance {
         // Deposit `total_value` amount of tokens to mint_addr's balance
         deposit(mint_addr, Coin<CoinType> { value: amount });
+    }
+
+    spec mint {
+        include DepositSchema<CoinType> {addr: mint_addr, amount};
     }
 
     public fun balance_of<CoinType>(owner: address): u64 acquires Balance {
@@ -56,6 +75,12 @@ module NamedAddr::MoveCoin {
         let balance_to = global<Balance<CoinType>>(to).coin.value;
         let post balance_from_post = global<Balance<CoinType>>(addr_from).coin.value;
         let post balance_to_post = global<Balance<CoinType>>(to).coin.value;
+
+        aborts_if !exists<Balance<CoinType>>(addr_from);
+        aborts_if !exists<Balance<CoinType>>(to);
+        aborts_if balance_from < amount;
+        aborts_if balance_to + amount > MAX_U64;
+        aborts_if addr_from == to;
 
         ensures balance_from_post == balance_from - amount;
         ensures balance_to_post == balance_to + amount;
@@ -96,5 +121,17 @@ module NamedAddr::MoveCoin {
 
         let post balance_post = global<Balance<CoinType>>(addr).coin.value;
         ensures balance_post == balance + check_value;
+    }
+
+    spec schema DepositSchema<CoinType> {
+        addr: address;
+        amount: u64;
+        let balance = global<Balance<CoinType>>(addr).coin.value;
+
+        aborts_if !exists<Balance<CoinType>>(addr);
+        aborts_if balance + amount > MAX_U64;
+
+        let post balance_post = global<Balance<CoinType>>(addr).coin.value;
+        ensures balance_post == balance + amount;
     }
 }
