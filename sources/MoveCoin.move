@@ -24,7 +24,7 @@ module NamedAddr::MoveCoin {
     public fun publish_balance(account: &signer) {
         let empty_coin = Coin { value: 0 };
         assert!(!exists<Balance>(signer::address_of(account)), EALREADY_HAS_BALANCE);
-        move_to(account, Balance { coin: empty_coin });
+        move_to(account, Balance { coin:  empty_coin });
     }
 
     /// Mint `amount` tokens to `mint_addr`. Mint must be approved by the module owner.
@@ -65,7 +65,7 @@ module NamedAddr::MoveCoin {
         *balance_ref = balance + value;
     }
 
-    #[test(account = @0x1)] // Creates a signer for the `account` argument with address `@0x1`
+    #[test(account = @0x1)]
     #[expected_failure] // This test should abort
     fun mint_non_owner(account: signer) acquires Balance {
         // Make sure the address we've chosen doesn't match the module
@@ -75,7 +75,7 @@ module NamedAddr::MoveCoin {
         mint(&account, @0x1, 10);
     }
 
-    #[test(account = @NamedAddr)] // Creates a signer for the `account` argument with the value of the named address `NamedAddr`
+    #[test(account = @NamedAddr)]
     fun mint_check_balance(account: signer) acquires Balance {
         let addr = signer::address_of(&account);
         publish_balance(&account);
@@ -97,7 +97,11 @@ module NamedAddr::MoveCoin {
         publish_balance(&account);
     }
 
-    // EXERCISE: Write `balance_of_dne` test here!
+    #[test]
+    #[expected_failure]
+    fun balance_of_dne() acquires Balance {
+        balance_of(@0x1);
+    }
 
     #[test]
     #[expected_failure]
