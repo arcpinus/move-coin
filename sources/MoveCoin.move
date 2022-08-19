@@ -22,13 +22,13 @@ module NamedAddr::MoveCoin {
     /// Publish an empty balance resource under `account`'s address. This function must be called before
     /// minting or transferring to the account.
     public fun publish_balance(account: &signer) {
-        // TODO: add an assert to check that `account` doesn't already have a `Balance` resource.
         let empty_coin = Coin { value: 0 };
+        assert!(!exists<Balance>(signer::address_of(account)), EALREADY_HAS_BALANCE);
         move_to(account, Balance { coin: empty_coin });
     }
 
-    /// Initialize this module.
-    public fun mint(module_owner: &signer, mint_addr: address, amount: u64) {
+    /// Mint `amount` tokens to `mint_addr`. Mint must be approved by the module owner.
+    public fun mint(module_owner: &signer, mint_addr: address, amount: u64) acquires Balance {
         // Only the owner of the module can initialize this module
         assert!(signer::address_of(module_owner) == MODULE_OWNER, ENOT_MODULE_OWNER);
 
@@ -58,12 +58,10 @@ module NamedAddr::MoveCoin {
     }
 
     /// Deposit `amount` number of tokens to the balance under `addr`.
-    fun deposit(_addr: address, check: Coin) {
-        // TODO: follow the implementation of `withdraw` and implement me!
-        let Coin { value: _amount } = check; // unpacks the check
-
-        // Get a mutable reference of addr's balance's coin value
-
-        // Increment the value by `amount`
+    fun deposit(addr: address, check: Coin) acquires Balance{
+        let balance = balance_of(addr);
+        let balance_ref = &mut borrow_global_mut<Balance>(addr).coin.value;
+        let Coin { value } = check;
+        *balance_ref = balance + value;
     }
 }
